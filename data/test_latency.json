@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": "2026-06-02T20:03:43.290341",
+    "total_time_ms": 51.15,
+    "modules": {
+      "test_module": 51.15
+    },
+    "breakdown_percent": {
+      "test_module": 100.0
+    }
+  },
+  {
+    "timestamp": "2026-06-02T20:04:07.232259",
+    "total_time_ms": 50.66,
+    "modules": {
+      "test_module": 50.66
+    },
+    "breakdown_percent": {
+      "test_module": 100.0
+    }
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "timestamp": "2026-06-02T20:29:02.891174",
+    "total_time_ms": 38587.39,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1627.82,
+      "intent_detection": 881.28,
+      "retrieval_router": 10918.91,
+      "context_builder": 0.0,
+      "response_generation": 1045.21,
+      "validation": 1.73,
+      "memory_persistence": 743.59,
+      "tts_generation": 23313.93,
+      "workflow_orchestration": 38587.39
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 2.1,
+      "intent_detection": 1.1,
+      "retrieval_router": 14.2,
+      "context_builder": 0.0,
+      "response_generation": 1.4,
+      "validation": 0.0,
+      "memory_persistence": 1.0,
+      "tts_generation": 30.2,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-02T20:32:27.270235",
+    "total_time_ms": 18292.14,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1851.01,
+      "intent_detection": 879.92,
+      "retrieval_router": 11678.87,
+      "context_builder": 0.0,
+      "response_generation": 935.09,
+      "validation": 0.0,
+      "memory_persistence": 518.29,
+      "tts_generation": 2400.3,
+      "workflow_orchestration": 18292.14
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.1,
+      "intent_detection": 2.4,
+      "retrieval_router": 31.9,
+      "context_builder": 0.0,
+      "response_generation": 2.6,
+      "validation": 0.0,
+      "memory_persistence": 1.4,
+      "tts_generation": 6.6,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-02T20:33:09.830661",
+    "total_time_ms": 6769.27,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 489.84,
+      "intent_detection": 670.14,
+      "retrieval_router": 2088.21,
+      "context_builder": 0.0,
+      "response_generation": 850.0,
+      "validation": 0.0,
+      "memory_persistence": 602.15,
+      "tts_generation": 2051.77,
+      "workflow_orchestration": 6769.27
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 3.6,
+      "intent_detection": 5.0,
+      "retrieval_router": 15.4,
+      "context_builder": 0.0,
+      "response_generation": 6.3,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 15.2,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-02T20:48:50.209913",
+    "total_time_ms": 7611.41,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 521.71,
+      "intent_detection": 869.67,
+      "retrieval_router": 1815.81,
+      "context_builder": 0.0,
+      "response_generation": 881.13,
+      "validation": 0.62,
+      "memory_persistence": 569.26,
+      "tts_generation": 2904.53,
+      "workflow_orchestration": 7611.41
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 3.4,
+      "intent_detection": 5.7,
+      "retrieval_router": 12.0,
+      "context_builder": 0.0,
+      "response_generation": 5.8,
+      "validation": 0.0,
+      "memory_persistence": 3.8,
+      "tts_generation": 19.1,
+      "workflow_orchestration": 50.2
+    }
+  },
+  {
+    "timestamp": "2026-06-02T20:50:03.048163",
+    "total_time_ms": 3904.49,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 451.61,
+      "intent_detection": 712.09,
+      "retrieval_router": 296.21,
+      "context_builder": 0.0,
+      "response_generation": 682.71,
+      "validation": 0.0,
+      "memory_persistence": 456.91,
+      "tts_generation": 1295.47,
+      "workflow_orchestration": 3904.49
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.8,
+      "intent_detection": 9.1,
+      "retrieval_router": 3.8,
+      "context_builder": 0.0,
+      "response_generation": 8.8,
+      "validation": 0.0,
+      "memory_persistence": 5.9,
+      "tts_generation": 16.6,
+      "workflow_orchestration": 50.1
+    }
+  }
+]

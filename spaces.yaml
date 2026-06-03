@@ -1,10 +1,8 @@
 title: Voice RAG Bot
-description: Voice-enabled RAG chatbot with sentiment analysis and entity extraction
-app_file: app.py
-sdk: streamlit
-sdk_version: "1.28.0"
-python_version: "3.11"
-cpu: true
-gpu: true
-startup_duration_timeout: 600
-hf_oauth: true
+emoji: 🎤
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 8501
+pinned: false
+license: mit

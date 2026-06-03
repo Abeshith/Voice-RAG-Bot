@@ -67,8 +67,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Push to HuggingFace Spaces
+        env:
+          HF_USERNAME: ${{ secrets.HF_USERNAME }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_REPO: ${{ secrets.HF_SPACE_REPO }}
         run: |
-          git config --global credential.helper store
-          echo "https://${{ secrets.HF_USERNAME }}:${{ secrets.HF_TOKEN }}@huggingface.co" > ~/.git-credentials
-          git remote add spaces https://huggingface.co/spaces/${{ secrets.HF_SPACE_REPO }}.git || true
-          git push --force spaces main
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git remote add spaces https://${HF_USERNAME}:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE_REPO}.git || git remote set-url spaces https://${HF_USERNAME}:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE_REPO}.git
+          git push spaces main --force

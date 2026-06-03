@@ -138,5 +138,141 @@
       "tts_generation": 16.6,
       "workflow_orchestration": 50.1
     }
+  },
+  {
+    "timestamp": "2026-06-03T18:29:39.252430",
+    "total_time_ms": 26031.32,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 2683.74,
+      "intent_detection": 2149.76,
+      "retrieval_router": 13606.48,
+      "context_builder": 0.0,
+      "response_generation": 1417.41,
+      "validation": 0.0,
+      "memory_persistence": 1065.74,
+      "tts_generation": 1723.5,
+      "workflow_orchestration": 26031.32
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.5,
+      "intent_detection": 4.4,
+      "retrieval_router": 28.0,
+      "context_builder": 0.0,
+      "response_generation": 2.9,
+      "validation": 0.0,
+      "memory_persistence": 2.2,
+      "tts_generation": 3.5,
+      "workflow_orchestration": 53.5
+    }
+  },
+  {
+    "timestamp": "2026-06-03T18:31:59.635819",
+    "total_time_ms": 7009.19,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 570.99,
+      "intent_detection": 1327.92,
+      "retrieval_router": 637.33,
+      "context_builder": 0.0,
+      "response_generation": 1209.4,
+      "validation": 0.0,
+      "memory_persistence": 1075.38,
+      "tts_generation": 2110.23,
+      "workflow_orchestration": 7009.19
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 4.1,
+      "intent_detection": 9.5,
+      "retrieval_router": 4.6,
+      "context_builder": 0.0,
+      "response_generation": 8.7,
+      "validation": 0.0,
+      "memory_persistence": 7.7,
+      "tts_generation": 15.1,
+      "workflow_orchestration": 50.3
+    }
+  },
+  {
+    "timestamp": "2026-06-03T18:32:31.131203",
+    "total_time_ms": 5959.28,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 123.39,
+      "intent_detection": 1338.2,
+      "retrieval_router": 298.56,
+      "context_builder": 0.0,
+      "response_generation": 1028.93,
+      "validation": 1.81,
+      "memory_persistence": 1062.51,
+      "tts_generation": 2081.34,
+      "workflow_orchestration": 5959.28
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.0,
+      "intent_detection": 11.3,
+      "retrieval_router": 2.5,
+      "context_builder": 0.0,
+      "response_generation": 8.7,
+      "validation": 0.0,
+      "memory_persistence": 8.9,
+      "tts_generation": 17.5,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-03T18:36:02.419370",
+    "total_time_ms": 20168.46,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "validation": 0.0,
+      "entity_extraction": 840.66,
+      "intent_detection": 1772.81,
+      "response_generation": 2562.12,
+      "retrieval_router": 2732.23,
+      "context_builder": 0.0,
+      "memory_persistence": 1871.22,
+      "tts_generation": 4072.96,
+      "workflow_orchestration": 20168.46
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "validation": 0.0,
+      "entity_extraction": 2.5,
+      "intent_detection": 5.2,
+      "response_generation": 7.5,
+      "retrieval_router": 8.0,
+      "context_builder": 0.0,
+      "memory_persistence": 5.5,
+      "tts_generation": 12.0,
+      "workflow_orchestration": 59.3
+    }
+  },
+  {
+    "timestamp": "2026-06-03T18:40:18.536003",
+    "total_time_ms": 421490.8,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 119.72,
+      "intent_detection": 978.72,
+      "retrieval_router": 307.16,
+      "context_builder": 0.0,
+      "response_generation": 3172.24,
+      "validation": 0.0,
+      "workflow_orchestration": 421487.38
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.0,
+      "intent_detection": 0.2,
+      "retrieval_router": 0.1,
+      "context_builder": 0.0,
+      "response_generation": 0.7,
+      "validation": 0.0,
+      "workflow_orchestration": 98.9
+    }
   }
 ]

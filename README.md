@@ -58,7 +58,219 @@ streamlit run frontend/streamlit_app.py
 
 ---
 
-## 📖 Usage Guide
+## � Docker Deployment
+
+### Option A: Docker Compose (Recommended for Development)
+
+Start all services (Backend + Frontend + Qdrant + Redis):
+```bash
+docker-compose up -d
+```
+
+**Access Points:**
+- 🎤 Frontend: http://localhost:8501
+- ⚙️ Backend: http://localhost:8000
+- 📚 Qdrant: http://localhost:6333
+- 💾 Redis: localhost:6379
+
+**Stop Services:**
+```bash
+docker-compose down
+```
+
+### Option B: Individual Docker Images
+
+**Build Image:**
+```bash
+docker build -t voice-rag-bot:latest .
+```
+
+**Run Backend:**
+```bash
+docker run -p 8000:8000 \
+  -e APP_TYPE=backend \
+  -e GROQ_API_KEY=your_key \
+  -e QDRANT_URL=http://localhost:6333 \
+  voice-rag-bot:latest
+```
+
+**Run Frontend:**
+```bash
+docker run -p 8501:8501 \
+  -e APP_TYPE=frontend \
+  -e GROQ_API_KEY=your_key \
+  -e QDRANT_URL=http://localhost:6333 \
+  voice-rag-bot:latest
+```
+
+---
+
+## 🚀 GitHub Actions CI/CD
+
+### Setup GitHub Secrets
+
+Add these secrets to your GitHub repository (Settings → Secrets and Variables → Actions):
+
+| Secret Name | Value | Description |
+|------------|-------|-------------|
+| `GROQ_API_KEY` | `gsk_xxxxxxxxxxxx` | Groq API key for LLM |
+| `HF_USERNAME` | `your_username` | HuggingFace username |
+| `HF_TOKEN` | `hf_xxxxxxxxxxxx` | HuggingFace access token |
+| `HF_SPACE_REPO` | `username/voice-rag-bot` | HF Spaces repo path |
+
+**How to Add Secrets:**
+1. Go to GitHub repository → Settings
+2. Click "Secrets and variables" → "Actions"
+3. Click "New repository secret"
+4. Add each secret with name and value
+
+### Automatic Deployment
+
+The workflow (`.github/workflows/docker-build.yml`) automatically:
+
+1. **On `main` branch push:**
+   - Builds Docker image
+   - Pushes to GitHub Container Registry (GHCR)
+   - Deploys to HuggingFace Spaces
+   - Generates tags: `main`, `latest`, `sha-xxxxx`
+
+2. **On Pull Request:**
+   - Builds Docker image (no push)
+   - Validates Dockerfile syntax
+   - Tests image build
+
+**Workflow File:**
+- Location: `.github/workflows/docker-build.yml`
+- Triggers: Push to `main`/`develop`, Pull requests
+- Status: View in GitHub → Actions tab
+
+**Access Docker Images:**
+```bash
+docker pull ghcr.io/your-username/voice-rag-bot:latest
+docker pull ghcr.io/your-username/voice-rag-bot:main
+```
+
+---
+
+## 🤗 HuggingFace Spaces Deployment
+
+### Option A: Automatic Deployment (Via GitHub Actions)
+
+1. Create HuggingFace Space: https://huggingface.co/spaces
+   - Name: `voice-rag-bot`
+   - License: OpenRAIL
+   - Private/Public: Your choice
+
+2. Get HF credentials:
+   - Username: Your HF account name
+   - Token: https://huggingface.co/settings/tokens (create "write" token)
+
+3. Add GitHub Secrets (see above):
+   - `HF_USERNAME`
+   - `HF_TOKEN`
+   - `HF_SPACE_REPO` = `username/voice-rag-bot`
+
+4. **Push to main branch → Automatic deployment!**
+
+### Option B: Manual Deployment to HF Spaces
+
+1. **Create HF Space (if not exists):**
+   ```bash
+   huggingface-cli repo create voice-rag-bot --type space --space-sdk streamlit
+   ```
+
+2. **Clone & Push:**
+   ```bash
+   git clone https://huggingface.co/spaces/your-username/voice-rag-bot
+   cd voice-rag-bot
+   
+   # Add your project files
+   cp -r /path/to/voice-rag-bot/* .
+   
+   # Push to HF Spaces
+   git add .
+   git commit -m "Deploy Voice RAG Bot"
+   git push origin main
+   ```
+
+3. **Configure Secrets in HF Spaces:**
+   - Go to Space Settings → Variables and secrets
+   - Add: `GROQ_API_KEY`, `QDRANT_URL`, etc.
+
+4. **App File:** `app.py` (automatically created)
+
+### HF Spaces Configuration (`spaces.yaml`)
+
+```yaml
+title: Voice RAG Bot
+description: Voice-enabled RAG chatbot
+app_file: app.py
+sdk: streamlit
+sdk_version: "1.28.0"
+python_version: "3.11"
+cpu: true
+gpu: true
+startup_duration_timeout: 600
+```
+
+### HF Spaces Requirements
+
+**Note:** HuggingFace Spaces runs Streamlit frontend only (no backend microservices).
+
+**Options:**
+1. **Use External Backend:**
+   - Deploy backend separately (Railway, Render, Heroku)
+   - Update `BACKEND_URL` in Streamlit config
+   - Spaces frontend connects to external backend
+
+2. **Self-contained (Frontend Only):**
+   - Remove backend API calls
+   - Use Streamlit session state for data
+   - Limited functionality (no vector DB, LLM caching)
+
+3. **Docker-based Space (Advanced):**
+   - Deploy full stack in Docker container
+   - Requires HF Spaces Docker runtime
+   - Use `Dockerfile` + `docker-compose.yml`
+
+**Recommended:** Use external FastAPI backend on Render/Railway + Streamlit on HF Spaces
+
+---
+
+## 🔧 Environment Variables for Deployment
+
+### Local Development
+```
+GROQ_API_KEY=gsk_xxxxxxxxxxxx
+QDRANT_URL=http://localhost:6333
+DEBUG=True
+LOG_LEVEL=INFO
+```
+
+### Docker Compose
+```
+GROQ_API_KEY=gsk_xxxxxxxxxxxx
+QDRANT_URL=http://qdrant:6333
+BACKEND_URL=http://backend:8000
+DEBUG=False
+LOG_LEVEL=INFO
+```
+
+### HuggingFace Spaces
+```
+GROQ_API_KEY=gsk_xxxxxxxxxxxx
+BACKEND_URL=https://your-backend-api.herokuapp.com
+FRONTEND_MODE=SPACES
+```
+
+### GitHub Actions (Auto-set)
+- `REGISTRY`: ghcr.io
+- `IMAGE_NAME`: ${{ github.repository }}
+- Secrets: See above
+
+---
+
+## �📖 Usage Guide
 
 ### Via Streamlit Frontend (Recommended)
 

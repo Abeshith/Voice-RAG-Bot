@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # Qdrant Vector Database
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      - QDRANT_API_KEY=${QDRANT_API_KEY:-}
+    networks:
+      - voice-rag-network
+
+  # FastAPI Backend
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - APP_TYPE=backend
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_MODEL=${GROQ_MODEL}
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_API_KEY=${QDRANT_API_KEY:-}
+      - KB_COLLECTION=${KB_COLLECTION}
+      - HISTORY_COLLECTION=${HISTORY_COLLECTION}
+      - DEBUG=${DEBUG:-True}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    ports:
+      - "8000:8000"
+    depends_on:
+      - qdrant
+    networks:
+      - voice-rag-network
+    volumes:
+      - ./data:/app/data
+
+  # Streamlit Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - APP_TYPE=frontend
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_MODEL=${GROQ_MODEL}
+      - QDRANT_URL=http://qdrant:6333
+      - QDRANT_API_KEY=${QDRANT_API_KEY:-}
+      - KB_COLLECTION=${KB_COLLECTION}
+      - HISTORY_COLLECTION=${HISTORY_COLLECTION}
+      - DEBUG=${DEBUG:-True}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
+    networks:
+      - voice-rag-network
+    volumes:
+      - ./data:/app/data
+
+  # Redis Cache (Optional)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - voice-rag-network
+    volumes:
+      - redis_storage:/data
+
+volumes:
+  qdrant_storage:
+  redis_storage:
+
+networks:
+  voice-rag-network:
+    driver: bridge

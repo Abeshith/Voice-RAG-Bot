@@ -58,14 +58,10 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Image digest
-        run: echo "Image pushed with digest: ${{ steps.docker_build.outputs.digest }}"
-
   deploy-to-hf-spaces:
     needs: build-and-push
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -74,23 +70,5 @@ jobs:
         run: |
           git config --global credential.helper store
           echo "https://${{ secrets.HF_USERNAME }}:${{ secrets.HF_TOKEN }}@huggingface.co" > ~/.git-credentials
-          
           git remote add spaces https://huggingface.co/spaces/${{ secrets.HF_SPACE_REPO }}.git || true
           git push --force spaces main
-        env:
-          HF_USERNAME: ${{ secrets.HF_USERNAME }}
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-
-  notify:
-    needs: [build-and-push]
-    runs-on: ubuntu-latest
-    if: always()
-    
-    steps:
-      - name: Build status
-        run: |
-          if [ "${{ needs.build-and-push.result }}" = "success" ]; then
-            echo "✅ Docker image built and pushed successfully!"
-          else
-            echo "❌ Docker build failed"
-          fi

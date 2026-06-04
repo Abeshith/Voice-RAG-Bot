@@ -1,6 +1,15 @@
-# Voice RAG Bot - AI Customer Support System
+---
+title: Voice RAG Bot
+emoji: 🎙️
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: false
+---
 
-**Status**: ✅ **FULLY FUNCTIONAL** | Latest Update: May 30, 2026
+# Voice RAG Bot
+
+A voice-enabled RAG (Retrieval Augmented Generation) bot.
 
 ## 📋 Quick Overview
 

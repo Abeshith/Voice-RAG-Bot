@@ -292,62 +292,46 @@ def display_response_results(response: Dict[str, Any]):
             "timestamp": datetime.now().isoformat(),
             "customer_id": st.session_state.customer_id,
             "response": response.get("response_text", ""),
-            "intent": response.get("intent", {}).get("intent", ""),
-            "sentiment": response.get("sentiment", {}).get("label", "")
+            "intent": response.get("intent", ""),
+            "sentiment": response.get("sentiment", "")
         })
     
     # Tab 2: Intent Detection
     with tabs[1]:
-        intent_data = response.get("intent", {})
-        col1, col2 = st.columns(2)
+        intent = response.get("intent", "")
+        st.metric("Detected Intent", intent if intent else "N/A")
         
-        with col1:
-            st.metric("Detected Intent", intent_data.get("intent", "N/A"))
-        with col2:
-            confidence = intent_data.get("confidence", 0)
-            st.metric("Confidence", f"{confidence:.1%}")
-        
-        # Intent explanation
         intent_types = {
             "refund_request": "Customer wants to return/refund a product",
             "order_status": "Customer inquiring about order tracking",
-            "product_inquiry": "Customer asking product details",
-            "billing_issue": "Customer has billing/payment problems",
-            "warranty_claim": "Customer filing warranty claim",
-            "account_management": "Account settings/updates",
-            "general_support": "General support request",
+            "inquiry": "Customer asking product details",
+            "billing": "Customer has billing/payment problems",
             "complaint": "Customer complaint",
+            "account_issue": "Account settings/updates",
+            "escalation": "Escalation needed",
+            "product_question": "Product inquiry",
             "other": "Other inquiry"
         }
         
-        intent = intent_data.get("intent", "")
         if intent in intent_types:
             st.write(f"**Category**: {intent_types[intent]}")
     
     # Tab 3: Sentiment Analysis
     with tabs[2]:
-        sentiment_data = response.get("sentiment", {})
-        label = sentiment_data.get("label", "NEUTRAL")
-        score = sentiment_data.get("score", 0)
+        sentiment = response.get("sentiment", "NEUTRAL")
         
-        # Color-coded sentiment display
-        if label == "POSITIVE":
+        if sentiment == "POSITIVE":
             color = "🟢"
             tone = "Positive"
-        elif label == "NEGATIVE":
+        elif sentiment == "NEGATIVE":
             color = "🔴"
             tone = "Negative"
         else:
             color = "🟡"
             tone = "Neutral"
         
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Sentiment", f"{color} {tone}")
-        with col2:
-            st.metric("Confidence", f"{score:.1%}")
-        
-        st.write(f"**Interpretation**: Response was generated with {tone.lower()}-{tone.lower()} tone")
+        st.metric("Sentiment", f"{color} {tone}")
+        st.write(f"**Interpretation**: Response was generated with {tone.lower()} tone")
     
     # Tab 4: Entities
     with tabs[3]:

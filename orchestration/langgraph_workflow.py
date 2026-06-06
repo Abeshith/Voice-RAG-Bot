@@ -11,11 +11,16 @@ from orchestration.nodes.sentiment_hybrid import sentiment_analysis_hybrid as se
 from orchestration.nodes.entity_extraction import entity_extraction_node
 from orchestration.nodes.intent_detection import intent_detection_node
 from orchestration.nodes.retrieval_router import retrieval_router_node
+from orchestration.nodes.memory_retrieval import memory_retrieval_node
 from orchestration.nodes.context_builder import context_builder_node
 from orchestration.nodes.response_generation import response_generation_node
 from orchestration.nodes.validation import validation_node
 from orchestration.nodes.memory_persistence import memory_persistence_node
 from orchestration.nodes.tts_generation import tts_generation_node
+from orchestration.nodes.escalation import escalation_node
+
+# Import subgraphs
+from orchestration.subgraphs.complaint_subgraph import complaint_subgraph_node
 
 logger = logging.getLogger(__name__)
 
@@ -25,10 +30,13 @@ def build_workflow() -> StateGraph:
     workflow.add_node("sentiment_analysis", sentiment_analysis_node)
     workflow.add_node("entity_extraction", entity_extraction_node)
     workflow.add_node("intent_detection", intent_detection_node)
+    workflow.add_node("complaint_subgraph", complaint_subgraph_node)
     workflow.add_node("retrieval_router", retrieval_router_node)
+    workflow.add_node("memory_retrieval", memory_retrieval_node)
     workflow.add_node("context_builder", context_builder_node)
     workflow.add_node("response_generation", response_generation_node)
     workflow.add_node("validation", validation_node)
+    workflow.add_node("escalation", escalation_node)
     workflow.add_node("memory_persistence", memory_persistence_node)
     workflow.add_node("tts_generation", tts_generation_node)
     
@@ -36,15 +44,63 @@ def build_workflow() -> StateGraph:
     workflow.add_edge(START, "entity_extraction")
     workflow.add_edge("sentiment_analysis", "intent_detection")
     workflow.add_edge("entity_extraction", "intent_detection")
-    workflow.add_edge("intent_detection", "retrieval_router")
-    workflow.add_edge("retrieval_router", "context_builder")
+    
+    # Conditional routing based on intent
+    def route_by_intent(state: ConversationState) -> str:
+        intent = state.get("intent", "inquiry")
+        if intent in ["complaint", "escalation"]:
+            return "complaint_subgraph"
+        else:
+            return "retrieval_router"
+    
+    workflow.add_conditional_edges(
+        "intent_detection",
+        route_by_intent,
+        {"complaint_subgraph": "complaint_subgraph", "retrieval_router": "retrieval_router"}
+    )
+    
+    # Both paths merge at memory_retrieval for context enrichment
+    workflow.add_edge("complaint_subgraph", "memory_retrieval")
+    workflow.add_edge("retrieval_router", "memory_retrieval")
+    workflow.add_edge("memory_retrieval", "context_builder")
     workflow.add_edge("context_builder", "response_generation")
     workflow.add_edge("response_generation", "validation")
     
     def should_regenerate(state: ConversationState) -> str:
-        return "memory_persistence" if state.get("validation_passed", False) else "response_generation"
+        """
+        Validation routing with escalation decision
+        
+        Routes based on:
+        - validation_passed: Response quality check
+        - retry_count: Retry attempts made
+        - escalation_level: Whether escalation needed
+        """
+        validation_passed = state.get("validation_passed", False)
+        escalation_level = state.get("escalation_level", "none")
+        
+        # If needs escalation, route there
+        if escalation_level != "none" and escalation_level != "":
+            return "escalation"
+        
+        # If validation passed, proceed to persistence
+        if validation_passed:
+            return "memory_persistence"
+        
+        # Otherwise retry response generation
+        return "response_generation"
     
-    workflow.add_conditional_edges("validation", should_regenerate, {"memory_persistence": "memory_persistence", "response_generation": "response_generation"})
+    workflow.add_conditional_edges(
+        "validation",
+        should_regenerate,
+        {
+            "memory_persistence": "memory_persistence",
+            "response_generation": "response_generation",
+            "escalation": "escalation"
+        }
+    )
+    
+    # Escalation routes to persistence (logs escalation, then continues)
+    workflow.add_edge("escalation", "memory_persistence")
     workflow.add_edge("memory_persistence", "tts_generation")
     workflow.add_edge("tts_generation", END)
     
@@ -85,9 +141,49 @@ async def run_workflow(user_input: str, customer_id: str) -> Dict[str, Any]:
             "conversation_summary": "",
             "kb_context": "",
             "history_context": "",
+            "memory_context": "",
             "response": "",
             "validation_passed": False,
-            "final_audio_path": None
+            "final_audio_path": None,
+            # Phase 6: Complaint Subgraph
+            "complaint_severity": "",
+            "escalation_urgency": 0,
+            "complaint_action": "",
+            "auto_escalate": False,
+            "resolution_strategy": "",
+            "offer_discount": False,
+            "offer_replacement": False,
+            "needs_escalation": False,
+            "response_tone": "",
+            "escalate_to_human": False,
+            "escalation_level": "",
+            "escalation_reason": "",
+            "priority_flag": False,
+            # Phase 8: Retry Policies
+            "retry_count": 0,
+            "retry_policy_applied": "normal",
+            "retry_max_attempts": 3,
+            "retry_strategy": "exponential_backoff",
+            "retry_success": True,
+            "retry_attempts": [],
+            # Phase 8: Escalation
+            "escalation_ticket": "",
+            "escalation_message": "",
+            "requires_callback": False,
+            # Phase 9: Thread-Scoped Memory
+            "thread_memory": {},
+            "thread_id": 0,
+            "thread_memory_status": "pending",
+            # Phase 10: Cross-Thread Memory
+            "cross_thread_memory": {},
+            "cross_thread_status": "pending",
+            "cross_thread_links": [],
+            "all_memory_available": False,
+            # Phase 4+9+10: Persistence Status
+            "persistence_status": "pending",
+            "qdrant_saved": False,
+            "thread_memory_saved": False,
+            "cross_thread_saved": False,
         }
         
         # Run workflow

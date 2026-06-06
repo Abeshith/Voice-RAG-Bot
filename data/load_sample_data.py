@@ -66,6 +66,37 @@ KB_DOCUMENTS = [
         numbers, and symbols. Two-factor authentication available for security. Account 
         information can be updated anytime in settings. Contact support to delete account.
         """
+    },
+    {
+        "id": "kb_005",
+        "title": "Complaint Resolution & Escalation",
+        "content": """
+        Complaint Handling: We take all customer complaints seriously. Level 1: Support team 
+        attempts resolution within 24 hours. Level 2: Manager review for unresolved complaints. 
+        Level 3: Executive escalation for critical issues. Compensation options include discounts, 
+        replacements, full refunds, or account credits depending on severity. We aim for 100% 
+        customer satisfaction and will escalate repeat complaints immediately.
+        """
+    },
+    {
+        "id": "kb_006",
+        "title": "Refund Status & Delays",
+        "content": """
+        Refund Processing: Standard refunds take 5-7 business days. Expedited refunds available 
+        for complaints (1-2 business days). Check refund status in your account under 'My Returns'. 
+        For delayed refunds beyond 7 days, contact support immediately. We automatically provide 
+        account credit plus 10% compensation for any refund delays. Guaranteed refund or replacement.
+        """
+    },
+    {
+        "id": "kb_007",
+        "title": "Product Defects & Replacements",
+        "content": """
+        Defective Product Replacement: If you receive a defective item, we offer immediate 
+        replacement at no cost plus return shipping. Report defects within 14 days of receipt. 
+        We cover replacement shipping and expedite processing. For critical defects, we may 
+        offer full refund plus 20% discount on future purchase instead of replacement.
+        """
     }
 ]
 
@@ -74,12 +105,22 @@ CUSTOMER_HISTORY = [
     {
         "customer_id": "CUST_001",
         "interaction_type": "complaint",
-        "text": "Customer complained about slow shipping on previous order. Resolution: expedited reshipment provided."
+        "text": "Complaint #1 (2025-12-01): Customer complained about slow shipping on previous order. Resolution: expedited reshipment provided."
     },
     {
         "customer_id": "CUST_001",
         "interaction_type": "purchase",
         "text": "Purchased laptop model XPS-15 on 2025-11-20. Status: delivered. Customer satisfied."
+    },
+    {
+        "customer_id": "CUST_001",
+        "interaction_type": "complaint",
+        "text": "Complaint #2 (2025-12-10): Item arrived with physical damage. Requested replacement. Status: Replacement shipped, escalated to manager."
+    },
+    {
+        "customer_id": "CUST_001",
+        "interaction_type": "complaint",
+        "text": "Complaint #3 (2025-12-15): Replacement also defective. Customer extremely frustrated. CRITICAL: Third complaint in 2 weeks. Escalated to executive level. Full refund + $50 credit approved."
     },
     {
         "customer_id": "CUST_002",
@@ -90,7 +131,27 @@ CUSTOMER_HISTORY = [
         "customer_id": "CUST_002",
         "interaction_type": "refund_request",
         "text": "Requested refund for unopened tablet within 30-day window. Refund approved and processed."
-    }
+    },
+    {
+        "customer_id": "CUST_003",
+        "interaction_type": "complaint",
+        "text": "Complaint (2025-12-08): Charged twice for single order. Customer angry. Amount: $299.99 duplicate charge. Status: Duplicate charge refunded within 2 hours. Escalated to billing team."
+    },
+    {
+        "customer_id": "CUST_004",
+        "interaction_type": "complaint",
+        "text": "Complaint (2025-12-05): Order missing items from package. Customer missing $150 worth of accessories. Status: Replacement package shipped immediately + $25 credit."
+    },
+    {
+        "customer_id": "CUST_005",
+        "interaction_type": "complaint",
+        "text": "Complaint #1 (2025-12-12): Delivery delay - order 3 days late. Status: Resolved with standard apology."
+    },
+    {
+        "customer_id": "CUST_005",
+        "interaction_type": "complaint",
+        "text": "Complaint #2 (2025-12-14): Item not as described in listing. Returned and refund processing. Status: Return approved, refund in progress."
+    },
 ]
 
 # ============================================================================

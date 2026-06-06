@@ -52,7 +52,7 @@ def entity_extraction_node(state: ConversationState) -> Dict[str, Any]:
         if entities_dict:
             return {"entities": entities_dict}
         else:
-            return {"entities": None}
+            return {"entities": {}}
     except Exception as e:
         tracker.end("entity_extraction")
-        return {"entities": None}
+        return {"entities": {}}

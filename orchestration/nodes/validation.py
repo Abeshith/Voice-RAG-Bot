@@ -22,7 +22,7 @@ def validation_node(state: ConversationState) -> Dict[str, Any]:
     tracker.start("validation")
     
     response = state.get('response', '')
-    sentiment = state.get('sentiment', {}).get('label', 'NEUTRAL')
+    sentiment = state.get('sentiment', 'NEUTRAL')
     
     # Check 1: Response length (between 50-500 characters)
     response_length = len(response)

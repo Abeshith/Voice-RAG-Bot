@@ -42,14 +42,14 @@ class VoiceBotController:
         cached_response = self.cache_mgr.get(self.customer_id, user_message)
         if cached_response:
             response_text = cached_response.get("response_text", "")
-            intent = cached_response.get("intent", {}).get("intent", "")
-            sentiment = cached_response.get("sentiment", {}).get("label", "")
+            intent = cached_response.get("intent", "")
+            sentiment = cached_response.get("sentiment", "")
         else:
             try:
                 result = await run_workflow(user_message, self.customer_id)
                 response_text = result.get("response", "")
-                intent = result.get("intent", {}).get("intent", "")
-                sentiment = result.get("sentiment", {}).get("label", "")
+                intent = result.get("intent", "")
+                sentiment = result.get("sentiment", "")
                 self.cache_mgr.set(self.customer_id, user_message, result)
             except Exception as e:
                 response_text = f"Error processing request: {str(e)}"

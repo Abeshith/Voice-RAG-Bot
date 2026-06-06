@@ -24,10 +24,9 @@ def context_builder_node(state: ConversationState) -> Dict[str, Any]:
     tracker.start("context_builder")
     
     # Extract components
-    sentiment_label = state['sentiment']['label']
-    sentiment_score = state['sentiment']['score']
-    intent = state['intent']['intent']
-    kb_context = state['kb_context']
+    sentiment = state.get('sentiment', 'NEUTRAL')
+    intent = state.get('intent', 'other')
+    kb_context = state.get('kb_context', '')
     history_context = state['history_context']
     conversation_summary = state['conversation_summary']
     entities = state.get('entities', {})
@@ -39,7 +38,7 @@ def context_builder_node(state: ConversationState) -> Dict[str, Any]:
     formatted_context = f"""
 === UNIFIED CONTEXT ===
 User Intent: {intent}
-User Sentiment: {sentiment_label} (confidence: {sentiment_score:.2f})
+User Sentiment: {sentiment}
 
 KB Context:
 {kb_context}

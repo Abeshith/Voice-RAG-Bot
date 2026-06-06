@@ -18,9 +18,10 @@ def retrieval_router_node(state: ConversationState) -> Dict[str, Any]:
     tracker = get_tracker()
     tracker.start("retrieval_router")
     
-    user_input = state['user_input']
-    customer_id = state['customer_id']
-    intent = state['intent']['intent']  # Intent classification result
+    user_input = state.get('user_input', '')
+    customer_id = state.get('customer_id', '')
+    intent = state.get('intent', 'other')
+    sentiment = state.get('sentiment', 'NEUTRAL')
     
     # Always retrieve from knowledge base
     kb_results = qdrant_manager.search_kb(user_input, limit=3)
@@ -31,9 +32,9 @@ def retrieval_router_node(state: ConversationState) -> Dict[str, Any]:
     
     # Conditionally retrieve from customer history
     history_context = ""
-    history_intents = ["complaint", "refund_request", "escalation", "billing_inquiry", "billing", "negative_sentiment"]
+    history_intents = ["complaint", "refund_request", "escalation", "billing_inquiry", "billing"]
     
-    if intent in history_intents or state['sentiment']['label'] == "NEGATIVE":
+    if intent in history_intents or sentiment == "NEGATIVE":
         history_results = qdrant_manager.search_history(
             user_input,
             customer_id,

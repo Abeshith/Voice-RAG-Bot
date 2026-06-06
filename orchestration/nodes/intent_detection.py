@@ -34,7 +34,16 @@ def intent_detection_node(state: ConversationState) -> Dict[str, Any]:
 
 User Input: {user_input}
 
-Possible intents: complaint, refund_request, inquiry, account_issue, escalation, billing, product_question, order_status, other
+Intent Definitions:
+- complaint: Customer reporting a problem, issue, or dissatisfaction (e.g., delayed order, defective product, billing error)
+- escalation: Customer is angry, demanding immediate action, or asking to speak to manager/supervisor
+- refund_request: Customer asking for money back
+- order_status: Customer asking about order tracking or status
+- inquiry: General questions about products or services
+- billing: Questions about charges, payments, or pricing
+- account_issue: Problems with account access or login
+- product_question: Questions about product features or specifications
+- other: Any other intent
 
 Response format:
 {{
@@ -58,4 +67,5 @@ Response format:
         }
     
     tracker.end("intent_detection")
-    return {"intent": intent_data}
+    # Return just the intent string, not the whole dict
+    return {"intent": intent_data.get("intent", "other")}

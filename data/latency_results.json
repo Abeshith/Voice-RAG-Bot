@@ -1,278 +1,2696 @@
 [
   {
-    "timestamp": "2026-06-02T20:29:02.891174",
-    "total_time_ms": 38587.39,
+    "timestamp": "2026-06-05T21:05:34.676673",
+    "total_time_ms": 18210.08,
     "modules": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 1627.82,
-      "intent_detection": 881.28,
-      "retrieval_router": 10918.91,
+      "entity_extraction": 1435.13,
+      "intent_detection": 801.73,
+      "retrieval_router": 10997.3,
       "context_builder": 0.0,
-      "response_generation": 1045.21,
-      "validation": 1.73,
-      "memory_persistence": 743.59,
-      "tts_generation": 23313.93,
-      "workflow_orchestration": 38587.39
+      "response_generation": 874.13,
+      "validation": 0.0,
+      "memory_persistence": 753.18,
+      "tts_generation": 3243.68,
+      "workflow_orchestration": 18210.08
     },
     "breakdown_percent": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 2.1,
-      "intent_detection": 1.1,
-      "retrieval_router": 14.2,
+      "entity_extraction": 4.0,
+      "intent_detection": 2.2,
+      "retrieval_router": 30.3,
       "context_builder": 0.0,
-      "response_generation": 1.4,
+      "response_generation": 2.4,
       "validation": 0.0,
-      "memory_persistence": 1.0,
-      "tts_generation": 30.2,
-      "workflow_orchestration": 50.0
-    }
-  },
-  {
-    "timestamp": "2026-06-02T20:32:27.270235",
-    "total_time_ms": 18292.14,
-    "modules": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 1851.01,
-      "intent_detection": 879.92,
-      "retrieval_router": 11678.87,
-      "context_builder": 0.0,
-      "response_generation": 935.09,
-      "validation": 0.0,
-      "memory_persistence": 518.29,
-      "tts_generation": 2400.3,
-      "workflow_orchestration": 18292.14
-    },
-    "breakdown_percent": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 5.1,
-      "intent_detection": 2.4,
-      "retrieval_router": 31.9,
-      "context_builder": 0.0,
-      "response_generation": 2.6,
-      "validation": 0.0,
-      "memory_persistence": 1.4,
-      "tts_generation": 6.6,
-      "workflow_orchestration": 50.0
-    }
-  },
-  {
-    "timestamp": "2026-06-02T20:33:09.830661",
-    "total_time_ms": 6769.27,
-    "modules": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 489.84,
-      "intent_detection": 670.14,
-      "retrieval_router": 2088.21,
-      "context_builder": 0.0,
-      "response_generation": 850.0,
-      "validation": 0.0,
-      "memory_persistence": 602.15,
-      "tts_generation": 2051.77,
-      "workflow_orchestration": 6769.27
-    },
-    "breakdown_percent": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 3.6,
-      "intent_detection": 5.0,
-      "retrieval_router": 15.4,
-      "context_builder": 0.0,
-      "response_generation": 6.3,
-      "validation": 0.0,
-      "memory_persistence": 4.5,
-      "tts_generation": 15.2,
+      "memory_persistence": 2.1,
+      "tts_generation": 8.9,
       "workflow_orchestration": 50.1
     }
   },
   {
-    "timestamp": "2026-06-02T20:48:50.209913",
-    "total_time_ms": 7611.41,
+    "timestamp": "2026-06-05T21:07:27.785160",
+    "total_time_ms": 6943.54,
     "modules": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 521.71,
-      "intent_detection": 869.67,
-      "retrieval_router": 1815.81,
+      "entity_extraction": 471.19,
+      "intent_detection": 625.81,
+      "retrieval_router": 641.12,
       "context_builder": 0.0,
-      "response_generation": 881.13,
-      "validation": 0.62,
-      "memory_persistence": 569.26,
-      "tts_generation": 2904.53,
-      "workflow_orchestration": 7611.41
+      "response_generation": 728.69,
+      "validation": 2.29,
+      "memory_persistence": 700.67,
+      "tts_generation": 3751.47,
+      "workflow_orchestration": 6943.54
     },
     "breakdown_percent": {
       "sentiment_analysis": 0.0,
       "entity_extraction": 3.4,
-      "intent_detection": 5.7,
-      "retrieval_router": 12.0,
+      "intent_detection": 4.5,
+      "retrieval_router": 4.6,
       "context_builder": 0.0,
-      "response_generation": 5.8,
+      "response_generation": 5.3,
       "validation": 0.0,
-      "memory_persistence": 3.8,
-      "tts_generation": 19.1,
-      "workflow_orchestration": 50.2
-    }
-  },
-  {
-    "timestamp": "2026-06-02T20:50:03.048163",
-    "total_time_ms": 3904.49,
-    "modules": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 451.61,
-      "intent_detection": 712.09,
-      "retrieval_router": 296.21,
-      "context_builder": 0.0,
-      "response_generation": 682.71,
-      "validation": 0.0,
-      "memory_persistence": 456.91,
-      "tts_generation": 1295.47,
-      "workflow_orchestration": 3904.49
-    },
-    "breakdown_percent": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 5.8,
-      "intent_detection": 9.1,
-      "retrieval_router": 3.8,
-      "context_builder": 0.0,
-      "response_generation": 8.8,
-      "validation": 0.0,
-      "memory_persistence": 5.9,
-      "tts_generation": 16.6,
+      "memory_persistence": 5.1,
+      "tts_generation": 27.1,
       "workflow_orchestration": 50.1
     }
   },
   {
-    "timestamp": "2026-06-03T18:29:39.252430",
-    "total_time_ms": 26031.32,
+    "timestamp": "2026-06-05T21:08:27.395992",
+    "total_time_ms": 7341.42,
     "modules": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 2683.74,
-      "intent_detection": 2149.76,
-      "retrieval_router": 13606.48,
+      "entity_extraction": 103.97,
+      "sentiment_analysis": 1995.89,
+      "intent_detection": 816.57,
+      "retrieval_router": 524.54,
       "context_builder": 0.0,
-      "response_generation": 1417.41,
+      "response_generation": 873.26,
       "validation": 0.0,
-      "memory_persistence": 1065.74,
-      "tts_generation": 1723.5,
-      "workflow_orchestration": 26031.32
+      "memory_persistence": 422.73,
+      "tts_generation": 2672.81,
+      "workflow_orchestration": 7341.42
     },
     "breakdown_percent": {
-      "sentiment_analysis": 0.0,
-      "entity_extraction": 5.5,
-      "intent_detection": 4.4,
-      "retrieval_router": 28.0,
+      "entity_extraction": 0.7,
+      "sentiment_analysis": 13.5,
+      "intent_detection": 5.5,
+      "retrieval_router": 3.6,
       "context_builder": 0.0,
-      "response_generation": 2.9,
+      "response_generation": 5.9,
       "validation": 0.0,
-      "memory_persistence": 2.2,
-      "tts_generation": 3.5,
-      "workflow_orchestration": 53.5
+      "memory_persistence": 2.9,
+      "tts_generation": 18.1,
+      "workflow_orchestration": 49.8
     }
   },
   {
-    "timestamp": "2026-06-03T18:31:59.635819",
-    "total_time_ms": 7009.19,
+    "timestamp": "2026-06-05T21:10:15.282309",
+    "total_time_ms": 6373.76,
+    "modules": {
+      "entity_extraction": 49.82,
+      "sentiment_analysis": 2136.03,
+      "intent_detection": 707.51,
+      "retrieval_router": 352.39,
+      "context_builder": 0.0,
+      "response_generation": 757.66,
+      "validation": 0.0,
+      "memory_persistence": 354.23,
+      "tts_generation": 2017.67,
+      "workflow_orchestration": 6373.76
+    },
+    "breakdown_percent": {
+      "entity_extraction": 0.4,
+      "sentiment_analysis": 16.8,
+      "intent_detection": 5.5,
+      "retrieval_router": 2.8,
+      "context_builder": 0.0,
+      "response_generation": 5.9,
+      "validation": 0.0,
+      "memory_persistence": 2.8,
+      "tts_generation": 15.8,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:10:19.219632",
+    "total_time_ms": 3891.21,
+    "modules": {
+      "sentiment_analysis": 42.9,
+      "entity_extraction": 66.32,
+      "intent_detection": 571.63,
+      "retrieval_router": 375.66,
+      "context_builder": 0.0,
+      "response_generation": 696.21,
+      "validation": 0.0,
+      "memory_persistence": 328.49,
+      "tts_generation": 1848.1,
+      "workflow_orchestration": 3891.21
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.8,
+      "intent_detection": 7.3,
+      "retrieval_router": 4.8,
+      "context_builder": 0.0,
+      "response_generation": 8.9,
+      "validation": 0.0,
+      "memory_persistence": 4.2,
+      "tts_generation": 23.6,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:10:22.671778",
+    "total_time_ms": 3421.48,
+    "modules": {
+      "sentiment_analysis": 46.16,
+      "entity_extraction": 59.83,
+      "intent_detection": 718.7,
+      "retrieval_router": 323.67,
+      "context_builder": 0.0,
+      "response_generation": 761.64,
+      "validation": 0.0,
+      "memory_persistence": 274.45,
+      "tts_generation": 1260.85,
+      "workflow_orchestration": 3421.48
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.7,
+      "entity_extraction": 0.9,
+      "intent_detection": 10.5,
+      "retrieval_router": 4.7,
+      "context_builder": 0.0,
+      "response_generation": 11.1,
+      "validation": 0.0,
+      "memory_persistence": 4.0,
+      "tts_generation": 18.4,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:10:27.273452",
+    "total_time_ms": 4582.6,
     "modules": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 570.99,
-      "intent_detection": 1327.92,
-      "retrieval_router": 637.33,
+      "entity_extraction": 45.37,
+      "intent_detection": 599.82,
+      "retrieval_router": 165.83,
       "context_builder": 0.0,
-      "response_generation": 1209.4,
+      "response_generation": 654.29,
       "validation": 0.0,
-      "memory_persistence": 1075.38,
-      "tts_generation": 2110.23,
-      "workflow_orchestration": 7009.19
+      "memory_persistence": 369.81,
+      "tts_generation": 2728.52,
+      "workflow_orchestration": 4582.6
     },
     "breakdown_percent": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 4.1,
-      "intent_detection": 9.5,
-      "retrieval_router": 4.6,
+      "entity_extraction": 0.5,
+      "intent_detection": 6.6,
+      "retrieval_router": 1.8,
+      "context_builder": 0.0,
+      "response_generation": 7.2,
+      "validation": 0.0,
+      "memory_persistence": 4.0,
+      "tts_generation": 29.8,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:10:32.032001",
+    "total_time_ms": 4743.73,
+    "modules": {
+      "sentiment_analysis": 37.44,
+      "entity_extraction": 65.38,
+      "intent_detection": 805.27,
+      "retrieval_router": 354.81,
+      "context_builder": 0.0,
+      "response_generation": 1664.32,
+      "validation": 0.0,
+      "memory_persistence": 261.92,
+      "tts_generation": 1583.7,
+      "workflow_orchestration": 4743.73
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.7,
+      "intent_detection": 8.5,
+      "retrieval_router": 3.7,
+      "context_builder": 0.0,
+      "response_generation": 17.5,
+      "validation": 0.0,
+      "memory_persistence": 2.8,
+      "tts_generation": 16.6,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:15:45.021497",
+    "total_time_ms": 6863.75,
+    "modules": {
+      "entity_extraction": 661.3,
+      "sentiment_analysis": 1660.99,
+      "intent_detection": 724.45,
+      "retrieval_router": 441.07,
+      "context_builder": 0.0,
+      "response_generation": 1093.79,
+      "validation": 0.0,
+      "memory_persistence": 443.38,
+      "tts_generation": 2465.05,
+      "workflow_orchestration": 6863.75
+    },
+    "breakdown_percent": {
+      "entity_extraction": 4.6,
+      "sentiment_analysis": 11.6,
+      "intent_detection": 5.0,
+      "retrieval_router": 3.1,
+      "context_builder": 0.0,
+      "response_generation": 7.6,
+      "validation": 0.0,
+      "memory_persistence": 3.1,
+      "tts_generation": 17.2,
+      "workflow_orchestration": 47.8
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:15:51.368320",
+    "total_time_ms": 6242.01,
+    "modules": {
+      "sentiment_analysis": 180.12,
+      "entity_extraction": 269.1,
+      "intent_detection": 1310.48,
+      "retrieval_router": 777.01,
+      "context_builder": 0.0,
+      "response_generation": 1138.78,
+      "validation": 0.0,
+      "memory_persistence": 672.88,
+      "tts_generation": 2055.43,
+      "workflow_orchestration": 6242.01
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 1.4,
+      "entity_extraction": 2.1,
+      "intent_detection": 10.4,
+      "retrieval_router": 6.1,
+      "context_builder": 0.0,
+      "response_generation": 9.0,
+      "validation": 0.0,
+      "memory_persistence": 5.3,
+      "tts_generation": 16.3,
+      "workflow_orchestration": 49.4
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:15:55.880300",
+    "total_time_ms": 4473.66,
+    "modules": {
+      "sentiment_analysis": 138.88,
+      "entity_extraction": 240.71,
+      "intent_detection": 951.95,
+      "retrieval_router": 495.23,
+      "context_builder": 0.0,
+      "response_generation": 742.93,
+      "validation": 0.0,
+      "memory_persistence": 363.1,
+      "tts_generation": 1669.72,
+      "workflow_orchestration": 4473.66
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 1.5,
+      "entity_extraction": 2.7,
+      "intent_detection": 10.5,
+      "retrieval_router": 5.5,
+      "context_builder": 0.0,
+      "response_generation": 8.2,
+      "validation": 0.0,
+      "memory_persistence": 4.0,
+      "tts_generation": 18.4,
+      "workflow_orchestration": 49.3
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:16:01.988903",
+    "total_time_ms": 6024.87,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 76.52,
+      "intent_detection": 788.72,
+      "retrieval_router": 275.39,
+      "context_builder": 0.0,
+      "response_generation": 1721.38,
+      "validation": 0.0,
+      "memory_persistence": 485.87,
+      "tts_generation": 2662.39,
+      "workflow_orchestration": 6024.87
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.6,
+      "intent_detection": 6.6,
+      "retrieval_router": 2.3,
+      "context_builder": 0.0,
+      "response_generation": 14.3,
+      "validation": 0.0,
+      "memory_persistence": 4.0,
+      "tts_generation": 22.1,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:16:06.342555",
+    "total_time_ms": 4323.92,
+    "modules": {
+      "sentiment_analysis": 42.46,
+      "entity_extraction": 69.42,
+      "intent_detection": 738.39,
+      "retrieval_router": 363.02,
+      "context_builder": 0.0,
+      "response_generation": 643.11,
+      "validation": 0.0,
+      "memory_persistence": 282.97,
+      "tts_generation": 2221.48,
+      "workflow_orchestration": 4323.92
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.8,
+      "intent_detection": 8.5,
+      "retrieval_router": 4.2,
+      "context_builder": 0.0,
+      "response_generation": 7.4,
+      "validation": 0.0,
+      "memory_persistence": 3.3,
+      "tts_generation": 25.6,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-05T21:17:47.930659",
+    "total_time_ms": 21059.91,
+    "modules": {
+      "sentiment_analysis": 76.77,
+      "entity_extraction": 475.38,
+      "intent_detection": 846.08,
+      "retrieval_router": 2381.32,
+      "context_builder": 0.0,
+      "response_generation": 633.43,
+      "validation": 0.0,
+      "memory_persistence": 602.07,
+      "tts_generation": 7267.49,
+      "workflow_orchestration": 21059.91
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.2,
+      "entity_extraction": 1.4,
+      "intent_detection": 2.5,
+      "retrieval_router": 7.1,
+      "context_builder": 0.0,
+      "response_generation": 1.9,
+      "validation": 0.0,
+      "memory_persistence": 1.8,
+      "tts_generation": 21.8,
+      "workflow_orchestration": 63.2
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:14:59.434461",
+    "total_time_ms": 7572.77,
+    "modules": {
+      "entity_extraction": 560.53,
+      "sentiment_analysis": 2117.11,
+      "intent_detection": 773.66,
+      "retrieval_router": 410.06,
+      "context_builder": 0.0,
+      "response_generation": 1014.95,
+      "validation": 0.0,
+      "memory_persistence": 457.51,
+      "tts_generation": 2741.22,
+      "workflow_orchestration": 7572.77
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.6,
+      "sentiment_analysis": 13.5,
+      "intent_detection": 4.9,
+      "retrieval_router": 2.6,
+      "context_builder": 0.0,
+      "response_generation": 6.5,
+      "validation": 0.0,
+      "memory_persistence": 2.9,
+      "tts_generation": 17.5,
+      "workflow_orchestration": 48.4
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:15:04.793836",
+    "total_time_ms": 5339.04,
+    "modules": {
+      "sentiment_analysis": 64.24,
+      "entity_extraction": 110.31,
+      "intent_detection": 754.63,
+      "retrieval_router": 403.56,
+      "context_builder": 0.0,
+      "response_generation": 817.05,
+      "validation": 0.0,
+      "memory_persistence": 457.84,
+      "tts_generation": 2778.57,
+      "workflow_orchestration": 5339.04
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 1.0,
+      "intent_detection": 7.0,
+      "retrieval_router": 3.8,
+      "context_builder": 0.0,
+      "response_generation": 7.6,
+      "validation": 0.0,
+      "memory_persistence": 4.3,
+      "tts_generation": 25.9,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:15:09.964541",
+    "total_time_ms": 5143.64,
+    "modules": {
+      "sentiment_analysis": 49.33,
+      "entity_extraction": 83.4,
+      "intent_detection": 936.97,
+      "retrieval_router": 466.63,
+      "context_builder": 0.0,
+      "response_generation": 773.69,
+      "validation": 0.0,
+      "memory_persistence": 349.1,
+      "tts_generation": 2527.87,
+      "workflow_orchestration": 5143.64
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.8,
+      "intent_detection": 9.1,
+      "retrieval_router": 4.5,
+      "context_builder": 0.0,
+      "response_generation": 7.5,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 24.5,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:15:15.806348",
+    "total_time_ms": 5791.24,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 67.11,
+      "intent_detection": 783.25,
+      "retrieval_router": 201.07,
+      "context_builder": 0.0,
+      "response_generation": 718.99,
+      "validation": 0.0,
+      "memory_persistence": 539.13,
+      "tts_generation": 3466.85,
+      "workflow_orchestration": 5791.24
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.6,
+      "intent_detection": 6.8,
+      "retrieval_router": 1.7,
+      "context_builder": 0.0,
+      "response_generation": 6.2,
+      "validation": 0.0,
+      "memory_persistence": 4.7,
+      "tts_generation": 30.0,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:15:20.449633",
+    "total_time_ms": 4589.49,
+    "modules": {
+      "sentiment_analysis": 68.44,
+      "entity_extraction": 87.88,
+      "intent_detection": 751.73,
+      "retrieval_router": 393.18,
+      "context_builder": 0.0,
+      "response_generation": 939.56,
+      "validation": 0.0,
+      "memory_persistence": 416.83,
+      "tts_generation": 1985.31,
+      "workflow_orchestration": 4589.49
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.7,
+      "entity_extraction": 1.0,
+      "intent_detection": 8.1,
+      "retrieval_router": 4.3,
+      "context_builder": 0.0,
+      "response_generation": 10.2,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 21.5,
+      "workflow_orchestration": 49.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:25:52.948959",
+    "total_time_ms": 20926.31,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 2094.9,
+      "intent_detection": 894.98,
+      "retrieval_router": 12635.29,
+      "context_builder": 0.0,
+      "response_generation": 858.37,
+      "validation": 0.0,
+      "memory_persistence": 616.84,
+      "tts_generation": 3802.81,
+      "workflow_orchestration": 20926.31
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.0,
+      "intent_detection": 2.1,
+      "retrieval_router": 30.2,
+      "context_builder": 0.0,
+      "response_generation": 2.1,
+      "validation": 0.0,
+      "memory_persistence": 1.5,
+      "tts_generation": 9.1,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:26:01.116695",
+    "total_time_ms": 8144.19,
+    "modules": {
+      "entity_extraction": 662.46,
+      "sentiment_analysis": 2373.12,
+      "intent_detection": 841.02,
+      "retrieval_router": 474.12,
+      "context_builder": 0.0,
+      "response_generation": 1059.22,
+      "validation": 0.0,
+      "memory_persistence": 462.27,
+      "tts_generation": 2911.15,
+      "workflow_orchestration": 8144.19
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.9,
+      "sentiment_analysis": 14.0,
+      "intent_detection": 5.0,
+      "retrieval_router": 2.8,
+      "context_builder": 0.0,
+      "response_generation": 6.3,
+      "validation": 0.0,
+      "memory_persistence": 2.7,
+      "tts_generation": 17.2,
+      "workflow_orchestration": 48.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:30:03.620617",
+    "total_time_ms": 7058.72,
+    "modules": {
+      "entity_extraction": 558.6,
+      "sentiment_analysis": 2172.84,
+      "intent_detection": 722.23,
+      "retrieval_router": 420.16,
+      "context_builder": 0.0,
+      "response_generation": 806.63,
+      "validation": 6.61,
+      "memory_persistence": 499.73,
+      "tts_generation": 2373.56,
+      "workflow_orchestration": 7058.72
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.8,
+      "sentiment_analysis": 14.9,
+      "intent_detection": 4.9,
+      "retrieval_router": 2.9,
+      "context_builder": 0.0,
+      "response_generation": 5.5,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 16.2,
+      "workflow_orchestration": 48.3
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:30:09.367423",
+    "total_time_ms": 5716.53,
+    "modules": {
+      "sentiment_analysis": 57.57,
+      "entity_extraction": 86.28,
+      "intent_detection": 778.63,
+      "retrieval_router": 418.29,
+      "context_builder": 0.0,
+      "response_generation": 704.4,
+      "validation": 0.0,
+      "memory_persistence": 425.06,
+      "tts_generation": 3281.73,
+      "workflow_orchestration": 5716.53
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.8,
+      "intent_detection": 6.8,
+      "retrieval_router": 3.6,
+      "context_builder": 0.0,
+      "response_generation": 6.1,
+      "validation": 0.0,
+      "memory_persistence": 3.7,
+      "tts_generation": 28.6,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:30:13.453163",
+    "total_time_ms": 4052.94,
+    "modules": {
+      "sentiment_analysis": 64.13,
+      "entity_extraction": 88.49,
+      "intent_detection": 659.65,
+      "retrieval_router": 436.58,
+      "context_builder": 0.0,
+      "response_generation": 776.99,
+      "validation": 0.0,
+      "memory_persistence": 403.16,
+      "tts_generation": 1659.29,
+      "workflow_orchestration": 4052.94
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.8,
+      "entity_extraction": 1.1,
+      "intent_detection": 8.1,
+      "retrieval_router": 5.4,
+      "context_builder": 0.0,
+      "response_generation": 9.5,
+      "validation": 0.0,
+      "memory_persistence": 5.0,
+      "tts_generation": 20.4,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:30:21.427475",
+    "total_time_ms": 7957.5,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 72.19,
+      "intent_detection": 1008.76,
+      "retrieval_router": 199.52,
+      "context_builder": 0.0,
+      "response_generation": 1330.66,
+      "validation": 0.0,
+      "memory_persistence": 550.89,
+      "tts_generation": 4779.48,
+      "workflow_orchestration": 7957.5
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.5,
+      "intent_detection": 6.3,
+      "retrieval_router": 1.3,
+      "context_builder": 0.0,
+      "response_generation": 8.4,
+      "validation": 0.0,
+      "memory_persistence": 3.5,
+      "tts_generation": 30.1,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:30:28.090087",
+    "total_time_ms": 6651.39,
+    "modules": {
+      "sentiment_analysis": 52.46,
+      "entity_extraction": 88.21,
+      "intent_detection": 820.14,
+      "retrieval_router": 487.09,
+      "context_builder": 0.0,
+      "response_generation": 928.97,
+      "validation": 1.87,
+      "memory_persistence": 479.98,
+      "tts_generation": 3834.43,
+      "workflow_orchestration": 6651.39
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.7,
+      "intent_detection": 6.1,
+      "retrieval_router": 3.7,
+      "context_builder": 0.0,
+      "response_generation": 7.0,
+      "validation": 0.0,
+      "memory_persistence": 3.6,
+      "tts_generation": 28.7,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:41:41.562856",
+    "total_time_ms": 9200.1,
+    "modules": {
+      "entity_extraction": 648.29,
+      "sentiment_analysis": 2593.21,
+      "intent_detection": 912.68,
+      "retrieval_router": 377.01,
+      "context_builder": 0.0,
+      "response_generation": 848.29,
+      "validation": 2.22,
+      "memory_persistence": 483.27,
+      "tts_generation": 3906.69,
+      "workflow_orchestration": 9198.57
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.4,
+      "sentiment_analysis": 13.7,
+      "intent_detection": 4.8,
+      "retrieval_router": 2.0,
+      "context_builder": 0.0,
+      "response_generation": 4.5,
+      "validation": 0.0,
+      "memory_persistence": 2.5,
+      "tts_generation": 20.6,
+      "workflow_orchestration": 48.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:41:47.230985",
+    "total_time_ms": 5650.74,
+    "modules": {
+      "sentiment_analysis": 48.75,
+      "entity_extraction": 84.86,
+      "intent_detection": 815.26,
+      "retrieval_router": 484.54,
+      "context_builder": 0.0,
+      "response_generation": 735.5,
+      "validation": 0.0,
+      "memory_persistence": 504.01,
+      "tts_generation": 3011.09,
+      "workflow_orchestration": 5650.74
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.7,
+      "intent_detection": 7.2,
+      "retrieval_router": 4.3,
+      "context_builder": 0.0,
+      "response_generation": 6.5,
+      "validation": 0.0,
+      "memory_persistence": 4.4,
+      "tts_generation": 26.6,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:41:52.433549",
+    "total_time_ms": 5148.39,
+    "modules": {
+      "sentiment_analysis": 59.44,
+      "entity_extraction": 82.21,
+      "intent_detection": 844.59,
+      "retrieval_router": 481.05,
+      "context_builder": 0.0,
+      "response_generation": 745.56,
+      "validation": 0.0,
+      "memory_persistence": 423.94,
+      "tts_generation": 2558.61,
+      "workflow_orchestration": 5148.39
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 0.8,
+      "intent_detection": 8.2,
+      "retrieval_router": 4.7,
+      "context_builder": 0.0,
+      "response_generation": 7.2,
+      "validation": 0.0,
+      "memory_persistence": 4.1,
+      "tts_generation": 24.7,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:42:01.709250",
+    "total_time_ms": 9217.41,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 74.61,
+      "intent_detection": 874.03,
+      "retrieval_router": 213.72,
+      "context_builder": 0.0,
+      "response_generation": 1583.96,
+      "validation": 0.0,
+      "memory_persistence": 482.31,
+      "tts_generation": 5975.29,
+      "workflow_orchestration": 9217.41
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.4,
+      "intent_detection": 4.7,
+      "retrieval_router": 1.2,
+      "context_builder": 0.0,
+      "response_generation": 8.6,
+      "validation": 0.0,
+      "memory_persistence": 2.6,
+      "tts_generation": 32.4,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:42:07.612087",
+    "total_time_ms": 5868.98,
+    "modules": {
+      "sentiment_analysis": 47.07,
+      "entity_extraction": 73.84,
+      "intent_detection": 764.21,
+      "retrieval_router": 453.21,
+      "context_builder": 0.0,
+      "response_generation": 849.76,
+      "validation": 0.0,
+      "memory_persistence": 429.14,
+      "tts_generation": 3275.24,
+      "workflow_orchestration": 5868.98
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.6,
+      "intent_detection": 6.5,
+      "retrieval_router": 3.9,
+      "context_builder": 0.0,
+      "response_generation": 7.2,
+      "validation": 0.0,
+      "memory_persistence": 3.6,
+      "tts_generation": 27.8,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:54:15.257398",
+    "total_time_ms": 5909.45,
+    "modules": {
+      "entity_extraction": 433.46,
+      "sentiment_analysis": 1602.25,
+      "intent_detection": 672.92,
+      "retrieval_router": 398.29,
+      "context_builder": 0.0,
+      "response_generation": 758.27,
+      "validation": 2.52,
+      "memory_persistence": 371.09,
+      "tts_generation": 2066.9,
+      "workflow_orchestration": 5909.45
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.5,
+      "sentiment_analysis": 13.1,
+      "intent_detection": 5.5,
+      "retrieval_router": 3.3,
+      "context_builder": 0.0,
+      "response_generation": 6.2,
+      "validation": 0.0,
+      "memory_persistence": 3.0,
+      "tts_generation": 16.9,
+      "workflow_orchestration": 48.4
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:54:19.461874",
+    "total_time_ms": 4174.21,
+    "modules": {
+      "sentiment_analysis": 57.79,
+      "entity_extraction": 84.41,
+      "intent_detection": 605.08,
+      "retrieval_router": 414.4,
+      "context_builder": 0.0,
+      "response_generation": 730.63,
+      "validation": 0.0,
+      "memory_persistence": 453.74,
+      "tts_generation": 1871.47,
+      "workflow_orchestration": 4174.21
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.7,
+      "entity_extraction": 1.0,
+      "intent_detection": 7.2,
+      "retrieval_router": 4.9,
       "context_builder": 0.0,
       "response_generation": 8.7,
       "validation": 0.0,
-      "memory_persistence": 7.7,
-      "tts_generation": 15.1,
-      "workflow_orchestration": 50.3
+      "memory_persistence": 5.4,
+      "tts_generation": 22.3,
+      "workflow_orchestration": 49.7
     }
   },
   {
-    "timestamp": "2026-06-03T18:32:31.131203",
-    "total_time_ms": 5959.28,
+    "timestamp": "2026-06-06T08:54:23.689480",
+    "total_time_ms": 4199.53,
+    "modules": {
+      "sentiment_analysis": 45.34,
+      "entity_extraction": 78.59,
+      "intent_detection": 744.88,
+      "retrieval_router": 430.32,
+      "context_builder": 0.0,
+      "response_generation": 786.31,
+      "validation": 0.0,
+      "memory_persistence": 381.35,
+      "tts_generation": 1769.58,
+      "workflow_orchestration": 4199.53
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.9,
+      "intent_detection": 8.8,
+      "retrieval_router": 5.1,
+      "context_builder": 0.0,
+      "response_generation": 9.3,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 21.0,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:54:28.430207",
+    "total_time_ms": 4718.82,
     "modules": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 123.39,
-      "intent_detection": 1338.2,
-      "retrieval_router": 298.56,
+      "entity_extraction": 41.15,
+      "intent_detection": 552.03,
+      "retrieval_router": 167.32,
       "context_builder": 0.0,
-      "response_generation": 1028.93,
-      "validation": 1.81,
-      "memory_persistence": 1062.51,
-      "tts_generation": 2081.34,
-      "workflow_orchestration": 5959.28
+      "response_generation": 718.92,
+      "validation": 0.0,
+      "memory_persistence": 406.23,
+      "tts_generation": 2820.01,
+      "workflow_orchestration": 4718.82
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.4,
+      "intent_detection": 5.9,
+      "retrieval_router": 1.8,
+      "context_builder": 0.0,
+      "response_generation": 7.6,
+      "validation": 0.0,
+      "memory_persistence": 4.3,
+      "tts_generation": 29.9,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:54:32.625545",
+    "total_time_ms": 4177.3,
+    "modules": {
+      "sentiment_analysis": 39.93,
+      "entity_extraction": 59.48,
+      "intent_detection": 916.85,
+      "retrieval_router": 409.04,
+      "context_builder": 0.0,
+      "response_generation": 772.15,
+      "validation": 0.0,
+      "memory_persistence": 380.28,
+      "tts_generation": 1627.8,
+      "workflow_orchestration": 4177.3
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.7,
+      "intent_detection": 10.9,
+      "retrieval_router": 4.9,
+      "context_builder": 0.0,
+      "response_generation": 9.2,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 19.4,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:57:58.793024",
+    "total_time_ms": 7456.4,
+    "modules": {
+      "entity_extraction": 1008.07,
+      "sentiment_analysis": 2060.52,
+      "intent_detection": 760.87,
+      "retrieval_router": 524.08,
+      "context_builder": 0.0,
+      "response_generation": 818.63,
+      "validation": 0.0,
+      "memory_persistence": 475.52,
+      "tts_generation": 2765.02,
+      "workflow_orchestration": 7456.4
+    },
+    "breakdown_percent": {
+      "entity_extraction": 6.4,
+      "sentiment_analysis": 13.0,
+      "intent_detection": 4.8,
+      "retrieval_router": 3.3,
+      "context_builder": 0.0,
+      "response_generation": 5.2,
+      "validation": 0.0,
+      "memory_persistence": 3.0,
+      "tts_generation": 17.4,
+      "workflow_orchestration": 47.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:58:03.157206",
+    "total_time_ms": 4333.15,
+    "modules": {
+      "sentiment_analysis": 36.88,
+      "entity_extraction": 320.6,
+      "intent_detection": 575.79,
+      "retrieval_router": 366.28,
+      "context_builder": 0.0,
+      "response_generation": 713.17,
+      "validation": 0.0,
+      "memory_persistence": 389.25,
+      "tts_generation": 1953.15,
+      "workflow_orchestration": 4333.15
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 3.7,
+      "intent_detection": 6.6,
+      "retrieval_router": 4.2,
+      "context_builder": 0.0,
+      "response_generation": 8.2,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 22.5,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:58:06.865949",
+    "total_time_ms": 3678.9,
+    "modules": {
+      "sentiment_analysis": 42.65,
+      "entity_extraction": 69.01,
+      "intent_detection": 634.9,
+      "retrieval_router": 392.42,
+      "context_builder": 0.0,
+      "response_generation": 651.34,
+      "validation": 0.0,
+      "memory_persistence": 343.18,
+      "tts_generation": 1563.34,
+      "workflow_orchestration": 3678.9
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 0.9,
+      "intent_detection": 8.6,
+      "retrieval_router": 5.3,
+      "context_builder": 0.0,
+      "response_generation": 8.8,
+      "validation": 0.0,
+      "memory_persistence": 4.7,
+      "tts_generation": 21.2,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:58:11.976656",
+    "total_time_ms": 5098.16,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 35.35,
+      "intent_detection": 621.76,
+      "retrieval_router": 226.31,
+      "context_builder": 0.0,
+      "response_generation": 693.66,
+      "validation": 0.0,
+      "memory_persistence": 424.49,
+      "tts_generation": 3087.56,
+      "workflow_orchestration": 5098.16
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.3,
+      "intent_detection": 6.1,
+      "retrieval_router": 2.2,
+      "context_builder": 0.0,
+      "response_generation": 6.8,
+      "validation": 0.0,
+      "memory_persistence": 4.2,
+      "tts_generation": 30.3,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T08:58:16.386549",
+    "total_time_ms": 4361.05,
+    "modules": {
+      "sentiment_analysis": 37.68,
+      "entity_extraction": 52.28,
+      "intent_detection": 714.34,
+      "retrieval_router": 359.8,
+      "context_builder": 0.0,
+      "response_generation": 1229.21,
+      "validation": 0.0,
+      "memory_persistence": 315.98,
+      "tts_generation": 1678.63,
+      "workflow_orchestration": 4361.05
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.6,
+      "intent_detection": 8.2,
+      "retrieval_router": 4.1,
+      "context_builder": 0.0,
+      "response_generation": 14.0,
+      "validation": 0.0,
+      "memory_persistence": 3.6,
+      "tts_generation": 19.2,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:02:56.358230",
+    "total_time_ms": 28426.34,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1549.29,
+      "intent_detection": 820.8,
+      "retrieval_router": 10563.2,
+      "context_builder": 0.0,
+      "response_generation": 751.05,
+      "validation": 0.0,
+      "memory_persistence": 580.48,
+      "tts_generation": 2795.03,
+      "workflow_orchestration": 28426.34
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 3.4,
+      "intent_detection": 1.8,
+      "retrieval_router": 23.2,
+      "context_builder": 0.0,
+      "response_generation": 1.7,
+      "validation": 0.0,
+      "memory_persistence": 1.3,
+      "tts_generation": 6.1,
+      "workflow_orchestration": 62.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:10:35.648148",
+    "total_time_ms": 15613.84,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1637.9,
+      "intent_detection": 741.54,
+      "retrieval_router": 9628.93,
+      "context_builder": 0.0,
+      "response_generation": 776.25,
+      "validation": 0.0,
+      "memory_persistence": 436.68,
+      "tts_generation": 2380.1,
+      "workflow_orchestration": 15613.84
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.2,
+      "intent_detection": 2.4,
+      "retrieval_router": 30.8,
+      "context_builder": 0.0,
+      "response_generation": 2.5,
+      "validation": 0.0,
+      "memory_persistence": 1.4,
+      "tts_generation": 7.6,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:10:40.454923",
+    "total_time_ms": 4794.92,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 473.03,
+      "intent_detection": 761.82,
+      "context_builder": 0.0,
+      "response_generation": 639.21,
+      "validation": 0.0,
+      "memory_persistence": 664.96,
+      "tts_generation": 2247.25,
+      "workflow_orchestration": 4794.92
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 4.9,
+      "intent_detection": 8.0,
+      "context_builder": 0.0,
+      "response_generation": 6.7,
+      "validation": 0.0,
+      "memory_persistence": 6.9,
+      "tts_generation": 23.5,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:12:56.194576",
+    "total_time_ms": 16451.32,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1753.36,
+      "intent_detection": 691.68,
+      "retrieval_router": 10129.5,
+      "context_builder": 0.0,
+      "response_generation": 926.72,
+      "validation": 0.0,
+      "memory_persistence": 512.44,
+      "tts_generation": 2418.31,
+      "workflow_orchestration": 16451.32
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.3,
+      "intent_detection": 2.1,
+      "retrieval_router": 30.8,
+      "context_builder": 0.0,
+      "response_generation": 2.8,
+      "validation": 0.0,
+      "memory_persistence": 1.6,
+      "tts_generation": 7.4,
+      "workflow_orchestration": 50.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:13:00.889941",
+    "total_time_ms": 4670.15,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 433.59,
+      "intent_detection": 710.07,
+      "context_builder": 0.0,
+      "response_generation": 544.55,
+      "validation": 0.0,
+      "memory_persistence": 394.83,
+      "tts_generation": 2570.17,
+      "workflow_orchestration": 4670.15
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 4.7,
+      "intent_detection": 7.6,
+      "context_builder": 0.0,
+      "response_generation": 5.8,
+      "validation": 0.0,
+      "memory_persistence": 4.2,
+      "tts_generation": 27.6,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:13:06.162728",
+    "total_time_ms": 5261.99,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 55.26,
+      "intent_detection": 615.85,
+      "retrieval_router": 351.37,
+      "context_builder": 0.0,
+      "response_generation": 685.15,
+      "validation": 0.0,
+      "memory_persistence": 353.02,
+      "tts_generation": 3180.59,
+      "workflow_orchestration": 5261.99
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.5,
+      "intent_detection": 5.9,
+      "retrieval_router": 3.3,
+      "context_builder": 0.0,
+      "response_generation": 6.5,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 30.3,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:13:10.424454",
+    "total_time_ms": 4239.95,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 84.5,
+      "intent_detection": 634.21,
+      "context_builder": 0.0,
+      "response_generation": 719.3,
+      "validation": 0.0,
+      "memory_persistence": 509.39,
+      "tts_generation": 2280.07,
+      "workflow_orchestration": 4239.95
     },
     "breakdown_percent": {
       "sentiment_analysis": 0.0,
       "entity_extraction": 1.0,
-      "intent_detection": 11.3,
-      "retrieval_router": 2.5,
+      "intent_detection": 7.5,
       "context_builder": 0.0,
-      "response_generation": 8.7,
+      "response_generation": 8.5,
       "validation": 0.0,
-      "memory_persistence": 8.9,
-      "tts_generation": 17.5,
+      "memory_persistence": 6.0,
+      "tts_generation": 26.9,
       "workflow_orchestration": 50.1
     }
   },
   {
-    "timestamp": "2026-06-03T18:36:02.419370",
-    "total_time_ms": 20168.46,
+    "timestamp": "2026-06-06T09:13:16.148827",
+    "total_time_ms": 5716.83,
     "modules": {
-      "sentiment_analysis": 0.0,
-      "validation": 0.0,
-      "entity_extraction": 840.66,
-      "intent_detection": 1772.81,
-      "response_generation": 2562.12,
-      "retrieval_router": 2732.23,
+      "entity_extraction": 42.14,
+      "sentiment_analysis": 1759.92,
+      "intent_detection": 762.17,
       "context_builder": 0.0,
-      "memory_persistence": 1871.22,
-      "tts_generation": 4072.96,
-      "workflow_orchestration": 20168.46
+      "response_generation": 550.17,
+      "validation": 0.0,
+      "memory_persistence": 393.93,
+      "tts_generation": 2239.85,
+      "workflow_orchestration": 5716.83
     },
     "breakdown_percent": {
-      "sentiment_analysis": 0.0,
-      "validation": 0.0,
-      "entity_extraction": 2.5,
-      "intent_detection": 5.2,
-      "response_generation": 7.5,
-      "retrieval_router": 8.0,
+      "entity_extraction": 0.4,
+      "sentiment_analysis": 15.4,
+      "intent_detection": 6.6,
       "context_builder": 0.0,
-      "memory_persistence": 5.5,
-      "tts_generation": 12.0,
-      "workflow_orchestration": 59.3
+      "response_generation": 4.8,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 19.5,
+      "workflow_orchestration": 49.9
     }
   },
   {
-    "timestamp": "2026-06-03T18:40:18.536003",
-    "total_time_ms": 421490.8,
+    "timestamp": "2026-06-06T09:13:21.010426",
+    "total_time_ms": 4840.55,
+    "modules": {
+      "sentiment_analysis": 39.82,
+      "entity_extraction": 62.7,
+      "intent_detection": 684.41,
+      "retrieval_router": 345.14,
+      "context_builder": 0.0,
+      "response_generation": 676.11,
+      "validation": 0.0,
+      "memory_persistence": 432.34,
+      "tts_generation": 2622.1,
+      "workflow_orchestration": 4840.55
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.6,
+      "intent_detection": 7.1,
+      "retrieval_router": 3.6,
+      "context_builder": 0.0,
+      "response_generation": 7.0,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 27.0,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:13:24.758591",
+    "total_time_ms": 3735.46,
     "modules": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 119.72,
-      "intent_detection": 978.72,
-      "retrieval_router": 307.16,
+      "entity_extraction": 40.32,
+      "intent_detection": 575.27,
+      "retrieval_router": 182.48,
       "context_builder": 0.0,
-      "response_generation": 3172.24,
+      "response_generation": 651.05,
       "validation": 0.0,
-      "workflow_orchestration": 421487.38
+      "memory_persistence": 364.64,
+      "tts_generation": 1908.51,
+      "workflow_orchestration": 3735.46
     },
     "breakdown_percent": {
       "sentiment_analysis": 0.0,
-      "entity_extraction": 0.0,
-      "intent_detection": 0.2,
-      "retrieval_router": 0.1,
+      "entity_extraction": 0.5,
+      "intent_detection": 7.7,
+      "retrieval_router": 2.4,
       "context_builder": 0.0,
-      "response_generation": 0.7,
+      "response_generation": 8.7,
       "validation": 0.0,
-      "workflow_orchestration": 98.9
+      "memory_persistence": 4.9,
+      "tts_generation": 25.6,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:21:34.845052",
+    "total_time_ms": 5604.2,
+    "modules": {
+      "entity_extraction": 355.89,
+      "sentiment_analysis": 1680.73,
+      "intent_detection": 673.94,
+      "context_builder": 0.0,
+      "response_generation": 614.31,
+      "validation": 0.0,
+      "memory_persistence": 360.09,
+      "tts_generation": 2247.47,
+      "workflow_orchestration": 5604.2
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.1,
+      "sentiment_analysis": 14.6,
+      "intent_detection": 5.8,
+      "context_builder": 0.0,
+      "response_generation": 5.3,
+      "validation": 0.0,
+      "memory_persistence": 3.1,
+      "tts_generation": 19.5,
+      "workflow_orchestration": 48.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:21:41.693819",
+    "total_time_ms": 6813.87,
+    "modules": {
+      "sentiment_analysis": 50.82,
+      "entity_extraction": 78.08,
+      "intent_detection": 610.27,
+      "retrieval_router": 470.93,
+      "context_builder": 0.0,
+      "response_generation": 704.9,
+      "validation": 0.0,
+      "memory_persistence": 332.68,
+      "tts_generation": 4594.81,
+      "workflow_orchestration": 6813.87
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.6,
+      "intent_detection": 4.5,
+      "retrieval_router": 3.4,
+      "context_builder": 0.0,
+      "response_generation": 5.2,
+      "validation": 0.0,
+      "memory_persistence": 2.4,
+      "tts_generation": 33.6,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:21:45.733081",
+    "total_time_ms": 3986.71,
+    "modules": {
+      "sentiment_analysis": 53.36,
+      "entity_extraction": 80.03,
+      "intent_detection": 596.01,
+      "context_builder": 0.0,
+      "response_generation": 667.78,
+      "validation": 0.0,
+      "memory_persistence": 341.04,
+      "tts_generation": 2287.33,
+      "workflow_orchestration": 3986.71
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.7,
+      "entity_extraction": 1.0,
+      "intent_detection": 7.4,
+      "context_builder": 0.0,
+      "response_generation": 8.3,
+      "validation": 0.0,
+      "memory_persistence": 4.3,
+      "tts_generation": 28.5,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:21:50.193192",
+    "total_time_ms": 4420.61,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 40.91,
+      "intent_detection": 568.37,
+      "retrieval_router": 147.08,
+      "context_builder": 0.0,
+      "response_generation": 763.77,
+      "validation": 0.0,
+      "memory_persistence": 334.64,
+      "tts_generation": 2554.57,
+      "workflow_orchestration": 4420.61
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.5,
+      "intent_detection": 6.4,
+      "retrieval_router": 1.7,
+      "context_builder": 0.0,
+      "response_generation": 8.6,
+      "validation": 0.0,
+      "memory_persistence": 3.8,
+      "tts_generation": 28.9,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:21:54.492952",
+    "total_time_ms": 4279.83,
+    "modules": {
+      "sentiment_analysis": 46.68,
+      "entity_extraction": 63.83,
+      "intent_detection": 673.14,
+      "retrieval_router": 391.02,
+      "context_builder": 0.0,
+      "response_generation": 702.6,
+      "validation": 0.0,
+      "memory_persistence": 313.87,
+      "tts_generation": 2112.53,
+      "workflow_orchestration": 4279.83
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.7,
+      "intent_detection": 7.8,
+      "retrieval_router": 4.6,
+      "context_builder": 0.0,
+      "response_generation": 8.2,
+      "validation": 0.0,
+      "memory_persistence": 3.7,
+      "tts_generation": 24.6,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:33:46.936255",
+    "total_time_ms": 6414.0,
+    "modules": {
+      "entity_extraction": 496.18,
+      "sentiment_analysis": 1590.07,
+      "intent_detection": 699.4,
+      "context_builder": 0.0,
+      "response_generation": 690.25,
+      "validation": 0.0,
+      "memory_persistence": 457.33,
+      "tts_generation": 2907.68,
+      "workflow_orchestration": 6414.0
+    },
+    "breakdown_percent": {
+      "entity_extraction": 3.7,
+      "sentiment_analysis": 12.0,
+      "intent_detection": 5.3,
+      "context_builder": 0.0,
+      "response_generation": 5.2,
+      "validation": 0.0,
+      "memory_persistence": 3.5,
+      "tts_generation": 21.9,
+      "workflow_orchestration": 48.4
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:33:51.255156",
+    "total_time_ms": 4306.39,
+    "modules": {
+      "sentiment_analysis": 49.65,
+      "entity_extraction": 75.17,
+      "intent_detection": 623.04,
+      "retrieval_router": 375.3,
+      "context_builder": 0.0,
+      "response_generation": 979.03,
+      "validation": 0.0,
+      "memory_persistence": 324.76,
+      "tts_generation": 1920.9,
+      "workflow_orchestration": 4306.39
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 0.9,
+      "intent_detection": 7.2,
+      "retrieval_router": 4.3,
+      "context_builder": 0.0,
+      "response_generation": 11.3,
+      "validation": 0.0,
+      "memory_persistence": 3.8,
+      "tts_generation": 22.2,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:33:54.645195",
+    "total_time_ms": 3346.77,
+    "modules": {
+      "sentiment_analysis": 39.52,
+      "entity_extraction": 64.44,
+      "intent_detection": 609.03,
+      "context_builder": 0.0,
+      "response_generation": 619.35,
+      "validation": 0.0,
+      "memory_persistence": 337.62,
+      "tts_generation": 1697.66,
+      "workflow_orchestration": 3346.77
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 1.0,
+      "intent_detection": 9.1,
+      "context_builder": 0.0,
+      "response_generation": 9.2,
+      "validation": 0.0,
+      "memory_persistence": 5.0,
+      "tts_generation": 25.3,
+      "workflow_orchestration": 49.8
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:33:59.211860",
+    "total_time_ms": 4517.34,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 42.88,
+      "intent_detection": 563.15,
+      "retrieval_router": 182.49,
+      "context_builder": 0.0,
+      "response_generation": 737.17,
+      "validation": 0.0,
+      "memory_persistence": 403.25,
+      "tts_generation": 2578.94,
+      "workflow_orchestration": 4517.34
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.5,
+      "intent_detection": 6.2,
+      "retrieval_router": 2.0,
+      "context_builder": 0.0,
+      "response_generation": 8.2,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 28.6,
+      "workflow_orchestration": 50.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T09:34:03.585337",
+    "total_time_ms": 4335.43,
+    "modules": {
+      "sentiment_analysis": 36.88,
+      "entity_extraction": 54.54,
+      "intent_detection": 807.0,
+      "retrieval_router": 367.83,
+      "context_builder": 0.0,
+      "response_generation": 656.14,
+      "validation": 0.0,
+      "memory_persistence": 266.62,
+      "tts_generation": 2164.28,
+      "workflow_orchestration": 4335.43
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.6,
+      "intent_detection": 9.3,
+      "retrieval_router": 4.2,
+      "context_builder": 0.0,
+      "response_generation": 7.6,
+      "validation": 0.0,
+      "memory_persistence": 3.1,
+      "tts_generation": 24.9,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:10:02.093442",
+    "total_time_ms": 7166.01,
+    "modules": {
+      "entity_extraction": 625.85,
+      "sentiment_analysis": 1726.58,
+      "intent_detection": 806.07,
+      "retrieval_router": 461.96,
+      "context_builder": 0.0,
+      "response_generation": 960.79,
+      "validation": 0.0,
+      "memory_persistence": 498.14,
+      "tts_generation": 2218.39,
+      "workflow_orchestration": 7166.01
+    },
+    "breakdown_percent": {
+      "entity_extraction": 4.3,
+      "sentiment_analysis": 11.9,
+      "intent_detection": 5.6,
+      "retrieval_router": 3.2,
+      "context_builder": 0.0,
+      "response_generation": 6.6,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 15.3,
+      "workflow_orchestration": 49.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:10:06.804402",
+    "total_time_ms": 4667.75,
+    "modules": {
+      "sentiment_analysis": 57.97,
+      "entity_extraction": 89.14,
+      "intent_detection": 912.98,
+      "retrieval_router": 404.22,
+      "context_builder": 0.0,
+      "response_generation": 699.89,
+      "validation": 0.0,
+      "memory_persistence": 439.3,
+      "tts_generation": 1930.38,
+      "workflow_orchestration": 4667.75
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 1.0,
+      "intent_detection": 9.9,
+      "retrieval_router": 4.4,
+      "context_builder": 0.0,
+      "response_generation": 7.6,
+      "validation": 0.0,
+      "memory_persistence": 4.8,
+      "tts_generation": 21.0,
+      "workflow_orchestration": 50.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:10:11.928192",
+    "total_time_ms": 5028.3,
+    "modules": {
+      "sentiment_analysis": 56.44,
+      "entity_extraction": 87.25,
+      "intent_detection": 768.79,
+      "context_builder": 0.0,
+      "response_generation": 912.36,
+      "validation": 0.0,
+      "memory_persistence": 431.54,
+      "tts_generation": 2636.95,
+      "workflow_orchestration": 5028.3
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 0.9,
+      "intent_detection": 7.7,
+      "context_builder": 0.0,
+      "response_generation": 9.2,
+      "validation": 0.0,
+      "memory_persistence": 4.3,
+      "tts_generation": 26.6,
+      "workflow_orchestration": 50.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:10:18.811999",
+    "total_time_ms": 6852.01,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 47.63,
+      "intent_detection": 634.98,
+      "retrieval_router": 238.1,
+      "context_builder": 0.0,
+      "response_generation": 744.45,
+      "validation": 0.0,
+      "memory_persistence": 459.95,
+      "tts_generation": 4588.84,
+      "workflow_orchestration": 6852.01
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.4,
+      "intent_detection": 4.7,
+      "retrieval_router": 1.8,
+      "context_builder": 0.0,
+      "response_generation": 5.5,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 33.8,
+      "workflow_orchestration": 50.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:10:23.831190",
+    "total_time_ms": 4974.73,
+    "modules": {
+      "sentiment_analysis": 83.12,
+      "entity_extraction": 115.1,
+      "intent_detection": 1225.79,
+      "retrieval_router": 446.72,
+      "context_builder": 0.0,
+      "response_generation": 733.54,
+      "validation": 0.0,
+      "memory_persistence": 432.68,
+      "tts_generation": 1874.35,
+      "workflow_orchestration": 4974.73
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.8,
+      "entity_extraction": 1.2,
+      "intent_detection": 12.4,
+      "retrieval_router": 4.5,
+      "context_builder": 0.0,
+      "response_generation": 7.4,
+      "validation": 0.0,
+      "memory_persistence": 4.4,
+      "tts_generation": 19.0,
+      "workflow_orchestration": 50.3
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:11:17.738440",
+    "total_time_ms": 18278.72,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 2051.44,
+      "intent_detection": 774.47,
+      "retrieval_router": 11240.16,
+      "context_builder": 0.0,
+      "response_generation": 931.16,
+      "validation": 0.0,
+      "memory_persistence": 495.1,
+      "tts_generation": 2439.79,
+      "workflow_orchestration": 18277.33
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.7,
+      "intent_detection": 2.1,
+      "retrieval_router": 31.0,
+      "context_builder": 0.0,
+      "response_generation": 2.6,
+      "validation": 0.0,
+      "memory_persistence": 1.4,
+      "tts_generation": 6.7,
+      "workflow_orchestration": 50.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:11:24.378691",
+    "total_time_ms": 6583.04,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 744.92,
+      "intent_detection": 923.76,
+      "retrieval_router": 545.02,
+      "context_builder": 0.0,
+      "response_generation": 1156.61,
+      "validation": 0.0,
+      "memory_persistence": 388.54,
+      "tts_generation": 2632.91,
+      "workflow_orchestration": 6583.04
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.7,
+      "intent_detection": 7.1,
+      "retrieval_router": 4.2,
+      "context_builder": 0.0,
+      "response_generation": 8.9,
+      "validation": 0.0,
+      "memory_persistence": 3.0,
+      "tts_generation": 20.3,
+      "workflow_orchestration": 50.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:13:36.836785",
+    "total_time_ms": 21148.04,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 2097.5,
+      "intent_detection": 953.59,
+      "retrieval_router": 12456.77,
+      "context_builder": 0.0,
+      "response_generation": 979.87,
+      "validation": 0.0,
+      "memory_persistence": 574.03,
+      "tts_generation": 3654.6,
+      "workflow_orchestration": 21148.04
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.0,
+      "intent_detection": 2.3,
+      "retrieval_router": 29.8,
+      "context_builder": 0.0,
+      "response_generation": 2.3,
+      "validation": 0.0,
+      "memory_persistence": 1.4,
+      "tts_generation": 8.7,
+      "workflow_orchestration": 50.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:13:41.951336",
+    "total_time_ms": 5079.03,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 541.94,
+      "intent_detection": 688.1,
+      "context_builder": 0.0,
+      "response_generation": 878.38,
+      "validation": 0.0,
+      "memory_persistence": 471.78,
+      "tts_generation": 2265.21,
+      "workflow_orchestration": 5079.03
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.5,
+      "intent_detection": 6.9,
+      "context_builder": 0.0,
+      "response_generation": 8.9,
+      "validation": 0.0,
+      "memory_persistence": 4.8,
+      "tts_generation": 22.8,
+      "workflow_orchestration": 51.2
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:13:47.843504",
+    "total_time_ms": 5868.47,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 73.67,
+      "intent_detection": 756.46,
+      "retrieval_router": 496.28,
+      "context_builder": 0.0,
+      "response_generation": 754.88,
+      "validation": 0.0,
+      "memory_persistence": 482.89,
+      "tts_generation": 3134.7,
+      "workflow_orchestration": 5868.47
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.6,
+      "intent_detection": 6.5,
+      "retrieval_router": 4.3,
+      "context_builder": 0.0,
+      "response_generation": 6.5,
+      "validation": 0.0,
+      "memory_persistence": 4.2,
+      "tts_generation": 27.1,
+      "workflow_orchestration": 50.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:13:52.541212",
+    "total_time_ms": 4660.83,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 126.1,
+      "intent_detection": 897.53,
+      "context_builder": 0.0,
+      "response_generation": 947.06,
+      "validation": 0.0,
+      "memory_persistence": 487.31,
+      "tts_generation": 1937.77,
+      "workflow_orchestration": 4660.83
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.4,
+      "intent_detection": 9.9,
+      "context_builder": 0.0,
+      "response_generation": 10.5,
+      "validation": 0.0,
+      "memory_persistence": 5.4,
+      "tts_generation": 21.4,
+      "workflow_orchestration": 51.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:13:58.375048",
+    "total_time_ms": 5802.81,
+    "modules": {
+      "entity_extraction": 86.61,
+      "sentiment_analysis": 1838.73,
+      "intent_detection": 795.64,
+      "context_builder": 0.0,
+      "response_generation": 903.51,
+      "validation": 0.0,
+      "memory_persistence": 390.21,
+      "tts_generation": 1693.28,
+      "workflow_orchestration": 5802.81
+    },
+    "breakdown_percent": {
+      "entity_extraction": 0.8,
+      "sentiment_analysis": 16.0,
+      "intent_detection": 6.9,
+      "context_builder": 0.0,
+      "response_generation": 7.8,
+      "validation": 0.0,
+      "memory_persistence": 3.4,
+      "tts_generation": 14.7,
+      "workflow_orchestration": 50.4
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:14:05.210207",
+    "total_time_ms": 6821.53,
+    "modules": {
+      "sentiment_analysis": 184.18,
+      "entity_extraction": 211.79,
+      "intent_detection": 766.03,
+      "retrieval_router": 423.48,
+      "context_builder": 0.0,
+      "response_generation": 929.64,
+      "validation": 0.0,
+      "memory_persistence": 495.9,
+      "tts_generation": 3827.39,
+      "workflow_orchestration": 6821.53
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 1.3,
+      "entity_extraction": 1.6,
+      "intent_detection": 5.6,
+      "retrieval_router": 3.1,
+      "context_builder": 0.0,
+      "response_generation": 6.8,
+      "validation": 0.0,
+      "memory_persistence": 3.6,
+      "tts_generation": 28.0,
+      "workflow_orchestration": 49.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:14:09.074580",
+    "total_time_ms": 3835.35,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 76.93,
+      "intent_detection": 870.25,
+      "retrieval_router": 220.56,
+      "context_builder": 0.0,
+      "response_generation": 977.66,
+      "validation": 0.0,
+      "memory_persistence": 368.46,
+      "tts_generation": 1151.34,
+      "workflow_orchestration": 3835.35
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.0,
+      "intent_detection": 11.6,
+      "retrieval_router": 2.9,
+      "context_builder": 0.0,
+      "response_generation": 13.0,
+      "validation": 0.0,
+      "memory_persistence": 4.9,
+      "tts_generation": 15.4,
+      "workflow_orchestration": 51.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:03.721256",
+    "total_time_ms": 18575.49,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1968.2,
+      "intent_detection": 1077.59,
+      "retrieval_router": 12165.05,
+      "context_builder": 0.0,
+      "response_generation": 758.18,
+      "validation": 0.0,
+      "memory_persistence": 494.71,
+      "tts_generation": 1772.76,
+      "workflow_orchestration": 18575.49
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 5.3,
+      "intent_detection": 2.9,
+      "retrieval_router": 33.0,
+      "context_builder": 0.0,
+      "response_generation": 2.1,
+      "validation": 0.0,
+      "memory_persistence": 1.3,
+      "tts_generation": 4.8,
+      "workflow_orchestration": 50.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:08.481911",
+    "total_time_ms": 4720.01,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 556.7,
+      "intent_detection": 834.49,
+      "context_builder": 0.0,
+      "response_generation": 748.93,
+      "validation": 0.0,
+      "memory_persistence": 440.66,
+      "tts_generation": 1938.11,
+      "workflow_orchestration": 4720.01
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 6.0,
+      "intent_detection": 9.0,
+      "context_builder": 0.0,
+      "response_generation": 8.1,
+      "validation": 0.0,
+      "memory_persistence": 4.8,
+      "tts_generation": 21.0,
+      "workflow_orchestration": 51.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:14.532807",
+    "total_time_ms": 6017.78,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 70.65,
+      "intent_detection": 632.87,
+      "retrieval_router": 445.99,
+      "context_builder": 0.0,
+      "response_generation": 860.55,
+      "validation": 0.0,
+      "memory_persistence": 537.51,
+      "tts_generation": 3323.85,
+      "workflow_orchestration": 6017.78
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.6,
+      "intent_detection": 5.3,
+      "retrieval_router": 3.8,
+      "context_builder": 0.0,
+      "response_generation": 7.2,
+      "validation": 0.0,
+      "memory_persistence": 4.5,
+      "tts_generation": 28.0,
+      "workflow_orchestration": 50.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:18.862619",
+    "total_time_ms": 4294.62,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 113.15,
+      "intent_detection": 767.27,
+      "context_builder": 0.0,
+      "response_generation": 728.27,
+      "validation": 0.0,
+      "memory_persistence": 512.51,
+      "tts_generation": 1970.78,
+      "workflow_orchestration": 4294.62
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.3,
+      "intent_detection": 9.1,
+      "context_builder": 0.0,
+      "response_generation": 8.7,
+      "validation": 0.0,
+      "memory_persistence": 6.1,
+      "tts_generation": 23.5,
+      "workflow_orchestration": 51.2
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:25.696839",
+    "total_time_ms": 6806.3,
+    "modules": {
+      "entity_extraction": 50.82,
+      "sentiment_analysis": 1871.57,
+      "intent_detection": 860.66,
+      "context_builder": 0.0,
+      "response_generation": 790.48,
+      "validation": 6.83,
+      "memory_persistence": 416.19,
+      "tts_generation": 2676.2,
+      "workflow_orchestration": 6806.3
+    },
+    "breakdown_percent": {
+      "entity_extraction": 0.4,
+      "sentiment_analysis": 13.9,
+      "intent_detection": 6.4,
+      "context_builder": 0.0,
+      "response_generation": 5.9,
+      "validation": 0.1,
+      "memory_persistence": 3.1,
+      "tts_generation": 19.9,
+      "workflow_orchestration": 50.5
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:33.530911",
+    "total_time_ms": 7770.61,
+    "modules": {
+      "sentiment_analysis": 76.02,
+      "entity_extraction": 128.13,
+      "intent_detection": 1082.82,
+      "retrieval_router": 588.84,
+      "context_builder": 0.0,
+      "response_generation": 1504.22,
+      "validation": 0.0,
+      "memory_persistence": 958.09,
+      "tts_generation": 3245.16,
+      "workflow_orchestration": 7770.61
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.5,
+      "entity_extraction": 0.8,
+      "intent_detection": 7.1,
+      "retrieval_router": 3.8,
+      "context_builder": 0.0,
+      "response_generation": 9.8,
+      "validation": 0.0,
+      "memory_persistence": 6.2,
+      "tts_generation": 21.1,
+      "workflow_orchestration": 50.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:16:38.460245",
+    "total_time_ms": 4869.75,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 119.59,
+      "intent_detection": 1274.98,
+      "retrieval_router": 331.12,
+      "context_builder": 0.0,
+      "response_generation": 718.23,
+      "validation": 0.0,
+      "memory_persistence": 389.04,
+      "tts_generation": 1866.73,
+      "workflow_orchestration": 4869.75
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.2,
+      "intent_detection": 13.3,
+      "retrieval_router": 3.5,
+      "context_builder": 0.0,
+      "response_generation": 7.5,
+      "validation": 0.0,
+      "memory_persistence": 4.1,
+      "tts_generation": 19.5,
+      "workflow_orchestration": 50.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T10:19:54.976346",
+    "total_time_ms": 37711.98,
+    "modules": {
+      "entity_extraction": 953.42,
+      "sentiment_analysis": 2274.41,
+      "intent_detection": 1628.99,
+      "retrieval_router": 3120.64,
+      "context_builder": 0.0,
+      "response_generation": 1217.75,
+      "validation": 0.0,
+      "memory_persistence": 1465.45,
+      "tts_generation": 5048.61,
+      "workflow_orchestration": 37711.98
+    },
+    "breakdown_percent": {
+      "entity_extraction": 1.8,
+      "sentiment_analysis": 4.3,
+      "intent_detection": 3.0,
+      "retrieval_router": 5.8,
+      "context_builder": 0.0,
+      "response_generation": 2.3,
+      "validation": 0.0,
+      "memory_persistence": 2.7,
+      "tts_generation": 9.5,
+      "workflow_orchestration": 70.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:07.843722",
+    "total_time_ms": 8588.4,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1804.24,
+      "intent_detection": 1881.82,
+      "retrieval_router": 588.42,
+      "context_builder": 0.0,
+      "response_generation": 886.44,
+      "validation": 0.0,
+      "memory_persistence": 659.87,
+      "tts_generation": 2561.33,
+      "workflow_orchestration": 8588.4
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 10.6,
+      "intent_detection": 11.1,
+      "retrieval_router": 3.5,
+      "context_builder": 0.0,
+      "response_generation": 5.2,
+      "validation": 0.0,
+      "memory_persistence": 3.9,
+      "tts_generation": 15.1,
+      "workflow_orchestration": 50.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:15.918837",
+    "total_time_ms": 8043.0,
+    "modules": {
+      "entity_extraction": 184.57,
+      "sentiment_analysis": 1863.12,
+      "intent_detection": 1102.98,
+      "context_builder": 0.0,
+      "response_generation": 1244.28,
+      "validation": 0.0,
+      "memory_persistence": 680.0,
+      "tts_generation": 2893.34,
+      "workflow_orchestration": 8043.0
+    },
+    "breakdown_percent": {
+      "entity_extraction": 1.2,
+      "sentiment_analysis": 11.6,
+      "intent_detection": 6.9,
+      "context_builder": 0.0,
+      "response_generation": 7.8,
+      "validation": 0.0,
+      "memory_persistence": 4.2,
+      "tts_generation": 18.1,
+      "workflow_orchestration": 50.2
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:21.350177",
+    "total_time_ms": 5318.13,
+    "modules": {
+      "sentiment_analysis": 68.82,
+      "entity_extraction": 101.53,
+      "intent_detection": 810.62,
+      "retrieval_router": 584.64,
+      "context_builder": 0.0,
+      "response_generation": 829.07,
+      "validation": 0.0,
+      "memory_persistence": 492.33,
+      "tts_generation": 2300.92,
+      "workflow_orchestration": 5318.13
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.7,
+      "entity_extraction": 1.0,
+      "intent_detection": 7.7,
+      "retrieval_router": 5.6,
+      "context_builder": 0.0,
+      "response_generation": 7.9,
+      "validation": 0.0,
+      "memory_persistence": 4.7,
+      "tts_generation": 21.9,
+      "workflow_orchestration": 50.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:27.243231",
+    "total_time_ms": 5812.8,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 81.49,
+      "intent_detection": 997.63,
+      "retrieval_router": 290.39,
+      "context_builder": 0.0,
+      "response_generation": 1117.85,
+      "validation": 0.0,
+      "memory_persistence": 619.93,
+      "tts_generation": 2541.35,
+      "workflow_orchestration": 5812.8
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.7,
+      "intent_detection": 8.7,
+      "retrieval_router": 2.5,
+      "context_builder": 0.0,
+      "response_generation": 9.8,
+      "validation": 0.0,
+      "memory_persistence": 5.4,
+      "tts_generation": 22.2,
+      "workflow_orchestration": 50.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:32.258922",
+    "total_time_ms": 4990.2,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 114.78,
+      "intent_detection": 904.37,
+      "retrieval_router": 263.21,
+      "context_builder": 0.0,
+      "response_generation": 872.34,
+      "validation": 0.0,
+      "memory_persistence": 617.16,
+      "tts_generation": 2050.34,
+      "workflow_orchestration": 4990.2
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.2,
+      "intent_detection": 9.2,
+      "retrieval_router": 2.7,
+      "context_builder": 0.0,
+      "response_generation": 8.9,
+      "validation": 0.0,
+      "memory_persistence": 6.3,
+      "tts_generation": 20.9,
+      "workflow_orchestration": 50.9
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:37.208657",
+    "total_time_ms": 4891.07,
+    "modules": {
+      "sentiment_analysis": 53.86,
+      "entity_extraction": 100.65,
+      "intent_detection": 804.52,
+      "context_builder": 0.0,
+      "response_generation": 1229.24,
+      "validation": 0.0,
+      "memory_persistence": 610.49,
+      "tts_generation": 1889.32,
+      "workflow_orchestration": 4891.07
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.6,
+      "entity_extraction": 1.1,
+      "intent_detection": 8.4,
+      "context_builder": 0.0,
+      "response_generation": 12.8,
+      "validation": 0.0,
+      "memory_persistence": 6.4,
+      "tts_generation": 19.7,
+      "workflow_orchestration": 51.1
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:42.718440",
+    "total_time_ms": 5433.49,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 92.89,
+      "intent_detection": 804.23,
+      "retrieval_router": 343.22,
+      "context_builder": 0.0,
+      "response_generation": 1225.36,
+      "validation": 0.0,
+      "memory_persistence": 853.75,
+      "tts_generation": 1841.73,
+      "workflow_orchestration": 5433.49
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 0.9,
+      "intent_detection": 7.6,
+      "retrieval_router": 3.2,
+      "context_builder": 0.0,
+      "response_generation": 11.6,
+      "validation": 0.0,
+      "memory_persistence": 8.1,
+      "tts_generation": 17.4,
+      "workflow_orchestration": 51.3
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:51.733144",
+    "total_time_ms": 8926.53,
+    "modules": {
+      "sentiment_analysis": 250.1,
+      "entity_extraction": 395.69,
+      "intent_detection": 1350.83,
+      "retrieval_router": 1379.21,
+      "context_builder": 0.0,
+      "response_generation": 1202.51,
+      "validation": 0.0,
+      "memory_persistence": 1519.32,
+      "tts_generation": 1405.26,
+      "workflow_orchestration": 8926.53
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 1.5,
+      "entity_extraction": 2.4,
+      "intent_detection": 8.2,
+      "retrieval_router": 8.4,
+      "context_builder": 0.0,
+      "response_generation": 7.3,
+      "validation": 0.0,
+      "memory_persistence": 9.2,
+      "tts_generation": 8.6,
+      "workflow_orchestration": 54.3
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:51.902868",
+    "total_time_ms": 9100.44,
+    "modules": {
+      "workflow_orchestration": 9100.44
+    },
+    "breakdown_percent": {
+      "workflow_orchestration": 100.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:51.974566",
+    "total_time_ms": 9178.18,
+    "modules": {
+      "workflow_orchestration": 9178.18
+    },
+    "breakdown_percent": {
+      "workflow_orchestration": 100.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:52.591881",
+    "total_time_ms": 9785.26,
+    "modules": {
+      "workflow_orchestration": 9785.26
+    },
+    "breakdown_percent": {
+      "workflow_orchestration": 100.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:56:56.123629",
+    "total_time_ms": 13323.22,
+    "modules": {
+      "workflow_orchestration": 13323.22
+    },
+    "breakdown_percent": {
+      "workflow_orchestration": 100.0
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:57:03.953877",
+    "total_time_ms": 7427.14,
+    "modules": {
+      "sentiment_analysis": 64.71,
+      "entity_extraction": 196.11,
+      "intent_detection": 1026.78,
+      "retrieval_router": 300.9,
+      "context_builder": 0.0,
+      "response_generation": 934.98,
+      "validation": 0.0,
+      "memory_persistence": 552.27,
+      "tts_generation": 4160.17,
+      "workflow_orchestration": 7427.14
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 1.3,
+      "intent_detection": 7.0,
+      "retrieval_router": 2.1,
+      "context_builder": 0.0,
+      "response_generation": 6.4,
+      "validation": 0.0,
+      "memory_persistence": 3.8,
+      "tts_generation": 28.4,
+      "workflow_orchestration": 50.7
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:57:12.476732",
+    "total_time_ms": 8457.37,
+    "modules": {
+      "sentiment_analysis": 59.49,
+      "entity_extraction": 125.49,
+      "intent_detection": 1079.95,
+      "retrieval_router": 1529.41,
+      "context_builder": 0.0,
+      "response_generation": 2232.14,
+      "validation": 0.0,
+      "memory_persistence": 1786.74,
+      "tts_generation": 1525.67,
+      "workflow_orchestration": 8457.37
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.7,
+      "intent_detection": 6.4,
+      "retrieval_router": 9.1,
+      "context_builder": 0.0,
+      "response_generation": 13.3,
+      "validation": 0.0,
+      "memory_persistence": 10.6,
+      "tts_generation": 9.1,
+      "workflow_orchestration": 50.4
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:57:20.510018",
+    "total_time_ms": 7968.3,
+    "modules": {
+      "sentiment_analysis": 61.57,
+      "entity_extraction": 78.93,
+      "intent_detection": 846.37,
+      "retrieval_router": 173.06,
+      "context_builder": 0.0,
+      "response_generation": 2081.88,
+      "validation": 0.0,
+      "memory_persistence": 609.63,
+      "tts_generation": 3987.73,
+      "workflow_orchestration": 7968.3
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.4,
+      "entity_extraction": 0.5,
+      "intent_detection": 5.4,
+      "retrieval_router": 1.1,
+      "context_builder": 0.0,
+      "response_generation": 13.2,
+      "validation": 0.0,
+      "memory_persistence": 3.9,
+      "tts_generation": 25.2,
+      "workflow_orchestration": 50.4
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:57:24.928616",
+    "total_time_ms": 4364.95,
+    "modules": {
+      "sentiment_analysis": 81.57,
+      "entity_extraction": 127.66,
+      "intent_detection": 884.31,
+      "retrieval_router": 564.1,
+      "context_builder": 0.0,
+      "response_generation": 1125.12,
+      "validation": 0.0,
+      "memory_persistence": 581.86,
+      "tts_generation": 890.93,
+      "workflow_orchestration": 4364.95
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.9,
+      "entity_extraction": 1.5,
+      "intent_detection": 10.3,
+      "retrieval_router": 6.5,
+      "context_builder": 0.0,
+      "response_generation": 13.1,
+      "validation": 0.0,
+      "memory_persistence": 6.7,
+      "tts_generation": 10.3,
+      "workflow_orchestration": 50.6
+    }
+  },
+  {
+    "timestamp": "2026-06-06T11:57:34.466389",
+    "total_time_ms": 9471.53,
+    "modules": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 279.16,
+      "intent_detection": 721.87,
+      "retrieval_router": 558.52,
+      "context_builder": 0.0,
+      "response_generation": 3809.3,
+      "validation": 0.0,
+      "memory_persistence": 657.17,
+      "tts_generation": 3276.9,
+      "workflow_orchestration": 9471.53
+    },
+    "breakdown_percent": {
+      "sentiment_analysis": 0.0,
+      "entity_extraction": 1.5,
+      "intent_detection": 3.8,
+      "retrieval_router": 3.0,
+      "context_builder": 0.0,
+      "response_generation": 20.3,
+      "validation": 0.0,
+      "memory_persistence": 3.5,
+      "tts_generation": 17.5,
+      "workflow_orchestration": 50.4
     }
   }
 ]

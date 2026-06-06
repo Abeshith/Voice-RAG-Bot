@@ -37,11 +37,10 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 
 class ProcessAudioResponse(BaseModel):
-    """Response model for audio processing"""
     response_text: str
     audio_path: Optional[str]
-    intent: dict
-    sentiment: dict
+    intent: str
+    sentiment: str
     entities: Optional[dict]
     kb_context: str
     history_context: str
@@ -134,8 +133,8 @@ async def process_audio(
         response = ProcessAudioResponse(
             response_text=final_state.get("response", ""),
             audio_path=final_state.get("final_audio_path"),
-            intent=final_state.get("intent", {}),
-            sentiment=final_state.get("sentiment", {}),
+            intent=final_state.get("intent", ""),
+            sentiment=final_state.get("sentiment", ""),
             entities=final_state.get("entities"),
             kb_context=final_state.get("kb_context", ""),
             history_context=final_state.get("history_context", "")
@@ -161,8 +160,8 @@ async def process_text(
         return ProcessAudioResponse(
             response_text=final_state.get("response", ""),
             audio_path=final_state.get("final_audio_path"),
-            intent=final_state.get("intent", {}),
-            sentiment=final_state.get("sentiment", {}),
+            intent=final_state.get("intent", ""),
+            sentiment=final_state.get("sentiment", ""),
             entities=final_state.get("entities"),
             kb_context=final_state.get("kb_context", ""),
             history_context=final_state.get("history_context", "")

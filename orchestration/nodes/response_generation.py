@@ -34,7 +34,7 @@ def response_generation_node(state: ConversationState) -> Dict[str, Any]:
         )
         
         # Determine tone based on sentiment
-        sentiment_label = state['sentiment']['label']
+        sentiment_label = state.get('sentiment', 'NEUTRAL')
         tone_instruction = {
             "POSITIVE": "Use a friendly, upbeat tone.",
             "NEGATIVE": "Use an empathetic, understanding tone. Acknowledge frustration.",
@@ -71,10 +71,10 @@ If you don't have relevant information, say so clearly."""
         logger.info("🤖 Response Generation: Invoking LLM chain...")
         chain = response_prompt | llm
         response = chain.invoke({
-            "user_input": state['user_input'],
-            "intent": state['intent']['intent'],
-            "kb_context": state['kb_context'],
-            "history_context": state['history_context'],
+            "user_input": state.get('user_input', ''),
+            "intent": state.get('intent', 'other'),
+            "kb_context": state.get('kb_context', ''),
+            "history_context": state.get('history_context', ''),
             "tone_instruction": tone_instruction
         })
         

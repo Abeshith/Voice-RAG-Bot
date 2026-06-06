@@ -1,0 +1,26 @@
+﻿python : D:\Voice RAG Bot\voice-rag-bot\rag\qdrant_manager.py:28: UserWarning: 
+Api key is used with an insecure connection.
+At line:1 char:69
++ ... pts\Activate.ps1 ; python tests/test_phase1_stabilize.py 2>&1 | Out-F ...
++                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\Voice RAG Bo...ure connection. 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  self.client = QdrantClient(
+
+
+Traceback (most recent call last):
+  File "D:\Voice RAG Bot\voice-rag-bot\tests\test_phase1_stabilize.py", line 
+596, in <module>
+    success = main()
+              ^^^^^^
+  File "D:\Voice RAG Bot\voice-rag-bot\tests\test_phase1_stabilize.py", line 
+494, in main
+    print("\u2554" + "="*68 + "\u2557")
+  File "C:\Users\ADMIN\AppData\Local\Programs\Python\Python311\Lib\encodings\cp
+1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2554' in 
+position 0: character maps to <undefined>

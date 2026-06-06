@@ -100,58 +100,176 @@ KB_DOCUMENTS = [
     }
 ]
 
-# Customer History Records (Previous Interactions)
+# Customer Purchase & Refund History (Detailed customer records)
+CUSTOMER_PURCHASE_HISTORY = {
+    "CUST_001": {
+        "customer_name": "Abiodun",
+        "purchases": [
+            {
+                "order_id": "ORD_001_2025_11_20",
+                "product": "Dell XPS 15 Laptop",
+                "model": "XPS-15-9530",
+                "purchase_date": "2025-11-20",
+                "amount": 1299.99,
+                "warranty_period": "1 year (Expires: 2026-11-20)",
+                "warranty_extended": False,
+                "warranty_extension_options": [
+                    {"years": 2, "cost": 149.99, "coverage": "Hardware + Accidental damage"},
+                    {"years": 3, "cost": 199.99, "coverage": "Hardware + Accidental + Parts replacement"}
+                ],
+                "status": "Delivered",
+                "refund_requested": False,
+                "return_eligible": False
+            }
+        ],
+        "refund_requests": [
+            {
+                "refund_id": "REF_001_2025_12_15",
+                "order_id": "ORD_001_2025_11_20",
+                "requested_date": "2025-12-15",
+                "reason": "Damaged on arrival, replacement also defective",
+                "status": "APPROVED",
+                "approved_date": "2025-12-15",
+                "amount": 1299.99,
+                "refund_processed_date": "2025-12-16",
+                "refund_method": "Original payment method + $50 store credit",
+                "notes": "Third complaint in 2 weeks. Executive escalation. Full refund approved."
+            }
+        ]
+    },
+    "CUST_002": {
+        "customer_name": "John",
+        "purchases": [
+            {
+                "order_id": "ORD_002_2025_11_15",
+                "product": "Samsung Galaxy Phone",
+                "model": "S24-Ultra",
+                "purchase_date": "2025-11-15",
+                "amount": 1199.99,
+                "warranty_period": "1 year (Expires: 2026-11-15)",
+                "warranty_extended": False,
+                "status": "Delivered"
+            },
+            {
+                "order_id": "ORD_003_2025_12_01",
+                "product": "iPad Pro 12.9",
+                "model": "iPad-Pro-M2",
+                "purchase_date": "2025-12-01",
+                "amount": 899.99,
+                "warranty_period": "1 year (Expires: 2026-12-01)",
+                "warranty_extended": False,
+                "status": "Unopened"
+            }
+        ],
+        "refund_requests": [
+            {
+                "refund_id": "REF_002_2025_12_10",
+                "order_id": "ORD_003_2025_12_01",
+                "requested_date": "2025-12-10",
+                "reason": "Changed mind about purchase",
+                "status": "APPROVED",
+                "approved_date": "2025-12-10",
+                "amount": 899.99,
+                "refund_processed_date": "2025-12-12",
+                "refund_method": "Original payment method"
+            }
+        ]
+    },
+    "CUST_003": {
+        "customer_name": "David",
+        "purchases": [
+            {
+                "order_id": "ORD_004_2025_11_25",
+                "product": "MacBook Pro 16",
+                "model": "MBP-M3-Max-16",
+                "purchase_date": "2025-11-25",
+                "amount": 3499.99,
+                "warranty_period": "1 year (Expires: 2026-11-25)",
+                "warranty_extended": False,
+                "status": "Delivered"
+            }
+        ],
+        "refund_requests": [
+            {
+                "refund_id": "REF_003_2025_12_08",
+                "order_id": "ORD_004_2025_11_25",
+                "requested_date": "2025-12-08",
+                "reason": "Duplicate charge on card",
+                "status": "APPROVED",
+                "approved_date": "2025-12-08",
+                "amount": 3499.99,
+                "refund_processed_date": "2025-12-08",
+                "refund_method": "Refund to original payment method + $50 credit"
+            }
+        ]
+    }
+}
+
+# ============================================================================
+# LEGACY CUSTOMER HISTORY (For backward compatibility)
+# ============================================================================
+
 CUSTOMER_HISTORY = [
     {
         "customer_id": "CUST_001",
-        "interaction_type": "complaint",
-        "text": "Complaint #1 (2025-12-01): Customer complained about slow shipping on previous order. Resolution: expedited reshipment provided."
-    },
-    {
-        "customer_id": "CUST_001",
         "interaction_type": "purchase",
-        "text": "Purchased laptop model XPS-15 on 2025-11-20. Status: delivered. Customer satisfied."
+        "text": "Purchased laptop model XPS-15 on 2025-11-20. Status: delivered. Warranty expires 2026-11-20."
+    },
+    {
+        "customer_id": "CUST_001",
+        "interaction_type": "inquiry",
+        "text": "Asked about warranty extension options for laptop. Provided information about 2-year and 3-year plans with accidental damage coverage."
     },
     {
         "customer_id": "CUST_001",
         "interaction_type": "complaint",
-        "text": "Complaint #2 (2025-12-10): Item arrived with physical damage. Requested replacement. Status: Replacement shipped, escalated to manager."
+        "text": "Item arrived with physical damage. Requested replacement. Replacement shipped with expedited priority."
     },
     {
         "customer_id": "CUST_001",
         "interaction_type": "complaint",
-        "text": "Complaint #3 (2025-12-15): Replacement also defective. Customer extremely frustrated. CRITICAL: Third complaint in 2 weeks. Escalated to executive level. Full refund + $50 credit approved."
+        "text": "Replacement also defective. Customer extremely frustrated. CRITICAL: Third complaint in 2 weeks. Escalated to executive level. Full refund + $50 credit approved."
+    },
+    {
+        "customer_id": "CUST_001",
+        "interaction_type": "refund_request",
+        "text": "Refund request approved and processed on 2025-12-16. Amount: $1299.99 refunded to original payment method plus $50 store credit."
+    },
+    {
+        "customer_id": "CUST_002",
+        "interaction_type": "purchase",
+        "text": "Purchased Samsung Galaxy Phone (S24-Ultra) on 2025-11-15. Amount: $1199.99. Status: Delivered. Warranty covers 1 year."
     },
     {
         "customer_id": "CUST_002",
         "interaction_type": "inquiry",
-        "text": "Asked about warranty coverage for defective phone. Explained 1-year coverage policy. Customer satisfied."
+        "text": "Asked about warranty coverage for phone. Explained 1-year manufacturer warranty covering defects. Extended warranty options available."
+    },
+    {
+        "customer_id": "CUST_002",
+        "interaction_type": "purchase",
+        "text": "Purchased iPad Pro 12.9 on 2025-12-01. Amount: $899.99. Status: Unopened. Within 30-day return window."
     },
     {
         "customer_id": "CUST_002",
         "interaction_type": "refund_request",
-        "text": "Requested refund for unopened tablet within 30-day window. Refund approved and processed."
+        "text": "Requested refund for unopened iPad Pro within 30-day return window. Reason: Changed mind about purchase. Refund APPROVED: $899.99 to original payment method."
+    },
+    {
+        "customer_id": "CUST_003",
+        "interaction_type": "purchase",
+        "text": "Purchased MacBook Pro 16 (M3 Max) on 2025-11-25. Amount: $3499.99. Status: Delivered. Warranty covers 1 year."
     },
     {
         "customer_id": "CUST_003",
         "interaction_type": "complaint",
-        "text": "Complaint (2025-12-08): Charged twice for single order. Customer angry. Amount: $299.99 duplicate charge. Status: Duplicate charge refunded within 2 hours. Escalated to billing team."
+        "text": "Charged twice for MacBook order. Duplicate charge: $3499.99. Customer angry. Status: Duplicate charge refunded within 2 hours. Escalated to billing team."
     },
     {
-        "customer_id": "CUST_004",
-        "interaction_type": "complaint",
-        "text": "Complaint (2025-12-05): Order missing items from package. Customer missing $150 worth of accessories. Status: Replacement package shipped immediately + $25 credit."
-    },
-    {
-        "customer_id": "CUST_005",
-        "interaction_type": "complaint",
-        "text": "Complaint #1 (2025-12-12): Delivery delay - order 3 days late. Status: Resolved with standard apology."
-    },
-    {
-        "customer_id": "CUST_005",
-        "interaction_type": "complaint",
-        "text": "Complaint #2 (2025-12-14): Item not as described in listing. Returned and refund processing. Status: Return approved, refund in progress."
-    },
+        "customer_id": "CUST_003",
+        "interaction_type": "refund_request",
+        "text": "Refund for duplicate charge APPROVED and processed on 2025-12-08. Refund amount: $3499.99 to original payment method. Bonus $50 store credit issued."
+    }
 ]
 
 # ============================================================================

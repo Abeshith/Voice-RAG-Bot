@@ -11,11 +11,15 @@ from orchestration.nodes.sentiment_hybrid import sentiment_analysis_hybrid as se
 from orchestration.nodes.entity_extraction import entity_extraction_node
 from orchestration.nodes.intent_detection import intent_detection_node
 from orchestration.nodes.retrieval_router import retrieval_router_node
+from orchestration.nodes.memory_routing import memory_routing_node
 from orchestration.nodes.memory_retrieval import memory_retrieval_node
 from orchestration.nodes.context_builder import context_builder_node
 from orchestration.nodes.response_generation import response_generation_node
 from orchestration.nodes.validation import validation_node
 from orchestration.nodes.memory_persistence import memory_persistence_node
+from orchestration.nodes.escalation_state_management import escalation_state_management_node
+from orchestration.nodes.sentiment_trend_analysis import sentiment_trend_analysis_node
+from orchestration.nodes.session_tracking import session_tracking_node
 from orchestration.nodes.tts_generation import tts_generation_node
 from orchestration.nodes.escalation import escalation_node
 
@@ -32,12 +36,16 @@ def build_workflow() -> StateGraph:
     workflow.add_node("intent_detection", intent_detection_node)
     workflow.add_node("complaint_subgraph", complaint_subgraph_node)
     workflow.add_node("retrieval_router", retrieval_router_node)
+    workflow.add_node("memory_routing", memory_routing_node)
     workflow.add_node("memory_retrieval", memory_retrieval_node)
     workflow.add_node("context_builder", context_builder_node)
     workflow.add_node("response_generation", response_generation_node)
     workflow.add_node("validation", validation_node)
+    workflow.add_node("sentiment_trend_analysis", sentiment_trend_analysis_node)
     workflow.add_node("escalation", escalation_node)
     workflow.add_node("memory_persistence", memory_persistence_node)
+    workflow.add_node("escalation_state_management", escalation_state_management_node)
+    workflow.add_node("session_tracking", session_tracking_node)
     workflow.add_node("tts_generation", tts_generation_node)
     
     workflow.add_edge(START, "sentiment_analysis")
@@ -60,48 +68,66 @@ def build_workflow() -> StateGraph:
     )
     
     # Both paths merge at memory_retrieval for context enrichment
-    workflow.add_edge("complaint_subgraph", "memory_retrieval")
-    workflow.add_edge("retrieval_router", "memory_retrieval")
+    workflow.add_edge("complaint_subgraph", "memory_routing")
+    workflow.add_edge("retrieval_router", "memory_routing")
+    workflow.add_edge("memory_routing", "memory_retrieval")
     workflow.add_edge("memory_retrieval", "context_builder")
     workflow.add_edge("context_builder", "response_generation")
     workflow.add_edge("response_generation", "validation")
     
     def should_regenerate(state: ConversationState) -> str:
         """
-        Validation routing with escalation decision
+        Validation routing
         
         Routes based on:
         - validation_passed: Response quality check
         - retry_count: Retry attempts made
-        - escalation_level: Whether escalation needed
         """
         validation_passed = state.get("validation_passed", False)
-        escalation_level = state.get("escalation_level", "none")
         
-        # If needs escalation, route there
-        if escalation_level != "none" and escalation_level != "":
-            return "escalation"
-        
-        # If validation passed, proceed to persistence
         if validation_passed:
-            return "memory_persistence"
+            return "sentiment_trend_analysis"
         
-        # Otherwise retry response generation
         return "response_generation"
     
     workflow.add_conditional_edges(
         "validation",
         should_regenerate,
         {
-            "memory_persistence": "memory_persistence",
+            "sentiment_trend_analysis": "sentiment_trend_analysis",
             "response_generation": "response_generation",
-            "escalation": "escalation"
         }
     )
     
-    # Escalation routes to persistence (logs escalation, then continues)
+    def should_escalate_by_trend(state: ConversationState) -> str:
+        """
+        Escalation routing based on escalation_level and sentiment trend
+        
+        Routes based on:
+        - escalation_level: Explicit escalation trigger
+        - trend_escalation_recommended: Trend-based escalation recommendation
+        """
+        escalation_level = state.get("escalation_level", "none")
+        trend_escalation_recommended = state.get("trend_escalation_recommended", False)
+        
+        if (escalation_level != "none" and escalation_level != "") or trend_escalation_recommended:
+            return "escalation"
+        
+        return "memory_persistence"
+    
+    workflow.add_conditional_edges(
+        "sentiment_trend_analysis",
+        should_escalate_by_trend,
+        {
+            "escalation": "escalation",
+            "memory_persistence": "memory_persistence",
+        }
+    )
+    
     workflow.add_edge("escalation", "memory_persistence")
-    workflow.add_edge("memory_persistence", "tts_generation")
+    workflow.add_edge("memory_persistence", "escalation_state_management")
+    workflow.add_edge("escalation_state_management", "session_tracking")
+    workflow.add_edge("session_tracking", "tts_generation")
     workflow.add_edge("tts_generation", END)
     
     return workflow
@@ -112,13 +138,15 @@ workflow = build_workflow()
 compiled_workflow = workflow.compile()
 
 
-async def run_workflow(user_input: str, customer_id: str) -> Dict[str, Any]:
+async def run_workflow(user_input: str, customer_id: str, user_id: str = None, session_id: str = None) -> Dict[str, Any]:
     """
     Execute the complete workflow
     
     Args:
         user_input: Text from STT (user's speech converted to text)
         customer_id: Unique customer identifier
+        user_id: Authenticated user ID (for Phase 11+ authentication)
+        session_id: Unique session identifier (for Phase 11+ authentication)
         
     Returns:
         Complete state with response, audio path, and metadata
@@ -133,6 +161,8 @@ async def run_workflow(user_input: str, customer_id: str) -> Dict[str, Any]:
         
         # Initialize state
         initial_state: ConversationState = {
+            "user_id": user_id or customer_id,
+            "session_id": session_id,
             "user_input": user_input,
             "customer_id": customer_id,
             "intent": {"intent": "unknown", "confidence": 0.0},
@@ -184,6 +214,37 @@ async def run_workflow(user_input: str, customer_id: str) -> Dict[str, Any]:
             "qdrant_saved": False,
             "thread_memory_saved": False,
             "cross_thread_saved": False,
+            # Phase 13: Session Linking & Tracking
+            "session_start_time": None,
+            "session_end_time": None,
+            "session_duration_seconds": 0,
+            "active_sessions": [],
+            "session_count": 0,
+            "session_linked": False,
+            "session_tracking_status": "pending",
+            # Phase 14: Memory Routing by Session
+            "session_memory_status": "pending",
+            "session_specific_context": None,
+            "previous_session_context": None,
+            "memory_routed_by_session": False,
+            "session_isolation_verified": False,
+            # Phase 15: Escalation State Management
+            "user_escalation_state": "none",
+            "escalation_state_updated": False,
+            "escalation_state_persisted": False,
+            "escalation_history_count": 0,
+            "escalation_state_management_status": "pending",
+            "escalation_influenced_response": False,
+            "previous_escalation_level": "none",
+            # Phase 16: Sentiment Trend Analysis
+            "sentiment_history": [],
+            "sentiment_trend": "stable",
+            "consecutive_negative_count": 0,
+            "trend_escalation_recommended": False,
+            "trend_escalation_reason": "",
+            "sentiment_trend_score": 0.0,
+            "trend_analysis_status": "pending",
+            "escalation_confidence": 0,
         }
         
         # Run workflow

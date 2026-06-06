@@ -54,6 +54,8 @@ class ConversationState(TypedDict):
     # Input & Context
     user_input: str
     customer_id: str
+    user_id: Optional[str]  # Phase 11: Authenticated user ID
+    session_id: Optional[str]  # Phase 11: Unique session identifier
     
     # NLP Analysis Results
     intent: str
@@ -119,6 +121,41 @@ class ConversationState(TypedDict):
     qdrant_saved: bool  # Whether Qdrant save succeeded
     thread_memory_saved: bool  # Whether thread memory saved
     cross_thread_saved: bool  # Whether cross-thread memory saved
+    
+    # Phase 13: Session Linking & Tracking
+    session_start_time: Optional[str]  # ISO format session start timestamp
+    session_end_time: Optional[str]  # ISO format session end timestamp
+    session_duration_seconds: int  # How long session lasted
+    active_sessions: List[str]  # List of session IDs for this user
+    session_count: int  # Total sessions for this user
+    session_linked: bool  # Whether session linked to user history
+    session_tracking_status: str  # Status of session tracking operation
+    
+    # Phase 14: Memory Routing by Session
+    session_memory_status: str  # Status of session-based memory routing
+    session_specific_context: Optional[Dict[str, Any]]  # Memory specific to current session
+    previous_session_context: Optional[Dict[str, Any]]  # Context from previous sessions
+    memory_routed_by_session: bool  # Whether memory successfully routed by session
+    session_isolation_verified: bool  # Whether session isolation is maintained
+    
+    # Phase 15: Escalation State Management
+    user_escalation_state: str  # Current user escalation level (none/low/medium/high/critical)
+    escalation_state_updated: bool  # Whether escalation state was updated
+    escalation_state_persisted: bool  # Whether state was persisted
+    escalation_history_count: int  # Count of escalations in session
+    escalation_state_management_status: str  # Status of escalation management operation
+    escalation_influenced_response: bool  # Whether response tone influenced by escalation
+    previous_escalation_level: str  # Previous escalation level before this interaction
+    
+    # Phase 16: Sentiment Trend Analysis
+    sentiment_history: List[str]  # Recent sentiment sequence for user
+    sentiment_trend: str  # Trend direction (improving/declining/stable)
+    consecutive_negative_count: int  # Count of consecutive negative sentiments
+    trend_escalation_recommended: bool  # Whether trend indicates escalation needed
+    trend_escalation_reason: str  # Reason for trend-based escalation recommendation
+    sentiment_trend_score: float  # Numerical trend score (-1 to +1)
+    trend_analysis_status: str  # Status of trend analysis operation
+    escalation_confidence: int  # Confidence level (0-100) for trend escalation
 
 
 class ConversationStateOptional(TypedDict, total=False):

@@ -62,7 +62,41 @@ BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 DATA_DIR = Path("data/audio_output")
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
+USERS = {
+    "abi": {
+        "password": "test123",
+        "user_id": "C001",
+        "name": "Abi",
+        "phone": "+1-555-0101"
+    },
+    "john": {
+        "password": "test123",
+        "user_id": "C002",
+        "name": "John",
+        "phone": "+1-555-0102"
+    },
+    "david": {
+        "password": "test123",
+        "user_id": "C003",
+        "name": "David",
+        "phone": "+1-555-0103"
+    }
+}
+
+# Build reverse lookup for phone numbers
+PHONE_TO_USER = {user_data["phone"]: username for username, user_data in USERS.items()}
+
 # Session state initialization
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+if "user_id" not in st.session_state:
+    st.session_state.user_id = None
+if "username" not in st.session_state:
+    st.session_state.username = None
+if "user_name" not in st.session_state:
+    st.session_state.user_name = None
+if "session_id" not in st.session_state:
+    st.session_state.session_id = None
 if "customer_id" not in st.session_state:
     st.session_state.customer_id = "CUST_001"
 if "processing" not in st.session_state:
@@ -90,6 +124,47 @@ if "last_processed_audio_id" not in st.session_state:
 # UTILITY FUNCTIONS
 # ============================================================================
 
+def login_page():
+    col1, col2, col3 = st.columns([1, 2, 1])
+    
+    with col2:
+        st.markdown("### Login")
+        
+        # Two-way login: username or phone number
+        login_input = st.text_input("Username or Phone Number", key="login_input")
+        password = st.text_input("Password", type="password", key="login_password")
+        
+        if st.button("Login", use_container_width=True):
+            # Check if input is a username
+            if login_input in USERS:
+                username = login_input
+            # Check if input is a phone number
+            elif login_input in PHONE_TO_USER:
+                username = PHONE_TO_USER[login_input]
+            else:
+                st.error("Username or phone number not found")
+                return
+            
+            # Validate password
+            if USERS[username]["password"] == password:
+                st.session_state.logged_in = True
+                st.session_state.user_id = USERS[username]["user_id"]
+                st.session_state.username = username
+                st.session_state.user_name = USERS[username]["name"]
+                st.session_state.session_id = str(hash(datetime.now().isoformat()))[:8]
+                st.session_state.customer_id = USERS[username]["user_id"]
+                st.success("Login successful!")
+                time.sleep(0.5)
+                st.rerun()
+            else:
+                st.error("Invalid password")
+        
+        st.markdown("---")
+        st.markdown("**Demo Credentials (Username/Phone):**")
+        st.markdown("- abi / +1-555-0101 → test123")
+        st.markdown("- john / +1-555-0102 → test123")
+        st.markdown("- david / +1-555-0103 → test123")
+
 def check_backend_health() -> bool:
     """Check if FastAPI backend is running"""
     try:
@@ -103,7 +178,7 @@ def check_backend_health() -> bool:
         return False
 
 
-def process_audio_file(audio_bytes: bytes, customer_id: str) -> Optional[Dict[str, Any]]:
+def process_audio_file(audio_bytes: bytes, customer_id: str, user_id: str = None, session_id: str = None) -> Optional[Dict[str, Any]]:
     """Send audio to backend for processing"""
     try:
         from io import BytesIO
@@ -115,10 +190,16 @@ def process_audio_file(audio_bytes: bytes, customer_id: str) -> Optional[Dict[st
             audio_file.name = f"audio_{datetime.now().strftime('%Y%m%d_%H%M%S')}.wav"
             
             files = {"file": (audio_file.name, audio_file, "audio/wav")}
+            params = {"customer_id": customer_id}
+            if user_id:
+                params["user_id"] = user_id
+            if session_id:
+                params["session_id"] = session_id
+            
             response = requests.post(
                 f"{BACKEND_URL}/process-audio",
                 files=files,
-                params={"customer_id": customer_id},
+                params=params,
                 timeout=120
             )
         
@@ -140,16 +221,22 @@ def process_audio_file(audio_bytes: bytes, customer_id: str) -> Optional[Dict[st
         return None
 
 
-def process_text_input(user_input: str, customer_id: str) -> Optional[Dict[str, Any]]:
+def process_text_input(user_input: str, customer_id: str, user_id: str = None, session_id: str = None) -> Optional[Dict[str, Any]]:
     """Send text to backend for processing"""
     try:
         with st.spinner("Processing text... (may take 20-30 seconds)"):
+            params = {
+                "user_input": user_input,
+                "customer_id": customer_id
+            }
+            if user_id:
+                params["user_id"] = user_id
+            if session_id:
+                params["session_id"] = session_id
+            
             response = requests.post(
                 f"{BACKEND_URL}/process-text",
-                params={
-                    "user_input": user_input,
-                    "customer_id": customer_id
-                },
+                params=params,
                 timeout=120
             )
         
@@ -170,12 +257,18 @@ def process_text_input(user_input: str, customer_id: str) -> Optional[Dict[str, 
 
 
 
-def voice_bot_start(customer_id: str) -> Optional[Dict[str, Any]]:
+def voice_bot_start(customer_id: str, user_id: str = None, session_id: str = None) -> Optional[Dict[str, Any]]:
     """Start voice bot session"""
     try:
+        params = {"customer_id": customer_id}
+        if user_id:
+            params["user_id"] = user_id
+        if session_id:
+            params["session_id"] = session_id
+        
         response = requests.post(
             f"{BACKEND_URL}/voice-bot/start",
-            params={"customer_id": customer_id},
+            params=params,
             timeout=60
         )
         
@@ -273,13 +366,17 @@ def display_response_results(response: Dict[str, Any]):
     
     # Create tabs for different result sections
     tabs = st.tabs([
-        "📝 Response",
-        "🎯 Intent",
-        "😊 Sentiment",
-        "🏷️ Entities",
-        "📚 Knowledge Base",
-        "📜 History",
-        "🔊 Audio"
+        "Response",
+        "Intent",
+        "Sentiment",
+        "Sentiment Trend",
+        "Entities",
+        "Knowledge Base",
+        "History",
+        "Session Tracking",
+        "Memory Routing",
+        "Escalation State",
+        "Audio"
     ])
     
     # Tab 1: Main Response
@@ -333,8 +430,37 @@ def display_response_results(response: Dict[str, Any]):
         st.metric("Sentiment", f"{color} {tone}")
         st.write(f"**Interpretation**: Response was generated with {tone.lower()} tone")
     
-    # Tab 4: Entities
+    # Tab 4: Sentiment Trend Analysis
     with tabs[3]:
+        sentiment_trend = response.get("sentiment_trend", "stable")
+        consecutive_negative = response.get("consecutive_negative_count", 0)
+        trend_escalation = response.get("trend_escalation_recommended", False)
+        trend_reason = response.get("trend_escalation_reason", "")
+        trend_score = response.get("sentiment_trend_score", 0.0)
+        escalation_conf = response.get("escalation_confidence", 0)
+        trend_status = response.get("trend_analysis_status", "unknown")
+        
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Trend Direction", sentiment_trend.upper())
+        with col2:
+            st.metric("Consecutive Negatives", consecutive_negative)
+        with col3:
+            st.metric("Escalation Recommended", "Yes" if trend_escalation else "No")
+        
+        st.write("**Sentiment Trend Details:**")
+        st.json({
+            "sentiment_trend": sentiment_trend,
+            "consecutive_negative_count": consecutive_negative,
+            "trend_escalation_recommended": trend_escalation,
+            "trend_escalation_reason": trend_reason,
+            "sentiment_trend_score": trend_score,
+            "escalation_confidence": f"{escalation_conf}%",
+            "trend_analysis_status": trend_status
+        })
+    
+    # Tab 5: Entities
+    with tabs[4]:
         entities = response.get("entities", {})
         if entities:
             for entity_type, values in entities.items():
@@ -345,8 +471,8 @@ def display_response_results(response: Dict[str, Any]):
         else:
             st.info("No entities extracted from input")
     
-    # Tab 5: Knowledge Base Context
-    with tabs[4]:
+    # Tab 6: Knowledge Base Context
+    with tabs[5]:
         kb_context = response.get("kb_context", "")
         if kb_context and isinstance(kb_context, str) and kb_context.strip() != "No relevant policies found.":
             st.write("**Retrieved Documents:**")
@@ -354,8 +480,8 @@ def display_response_results(response: Dict[str, Any]):
         else:
             st.info("No KB documents retrieved")
     
-    # Tab 6: Customer History
-    with tabs[5]:
+    # Tab 7: Customer History
+    with tabs[6]:
         history_context = response.get("history_context", "")
         if history_context and isinstance(history_context, str) and history_context.strip() != "No customer history available.":
             st.write("**Customer History:**")
@@ -363,8 +489,71 @@ def display_response_results(response: Dict[str, Any]):
         else:
             st.info("No customer history found")
     
-    # Tab 7: Audio Output
-    with tabs[6]:
+    with tabs[7]:
+        session_count = response.get("session_count", 0)
+        active_sessions = response.get("active_sessions", [])
+        session_status = response.get("session_tracking_status", "unknown")
+        
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Session Count", session_count)
+        with col2:
+            st.metric("Active Sessions", len(active_sessions) if active_sessions else 0)
+        with col3:
+            st.metric("Status", session_status)
+        
+        if active_sessions:
+            st.write("Active Sessions for User:")
+            for session in active_sessions:
+                st.code(session)
+        else:
+            st.info("No active sessions")
+    
+    with tabs[8]:
+        session_memory_status = response.get("session_memory_status", "unknown")
+        memory_routed = response.get("memory_routed_by_session", False)
+        isolation_verified = response.get("session_isolation_verified", False)
+        
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Memory Routing Status", session_memory_status)
+        with col2:
+            st.metric("Routed by Session", "Yes" if memory_routed else "No")
+        with col3:
+            st.metric("Isolation Verified", "Yes" if isolation_verified else "No")
+        
+        st.write("**Memory Routing Details:**")
+        st.json({
+            "session_memory_status": session_memory_status,
+            "memory_routed_by_session": memory_routed,
+            "session_isolation_verified": isolation_verified
+        })
+    
+    with tabs[9]:
+        user_escalation_state = response.get("user_escalation_state", "none")
+        escalation_updated = response.get("escalation_state_updated", False)
+        escalation_count = response.get("escalation_history_count", 0)
+        escalation_status = response.get("escalation_state_management_status", "unknown")
+        escalation_influenced = response.get("escalation_influenced_response", False)
+        
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Current State", user_escalation_state.upper())
+        with col2:
+            st.metric("State Updated", "Yes" if escalation_updated else "No")
+        with col3:
+            st.metric("History Count", escalation_count)
+        
+        st.write("**Escalation Management Details:**")
+        st.json({
+            "user_escalation_state": user_escalation_state,
+            "escalation_state_updated": escalation_updated,
+            "escalation_history_count": escalation_count,
+            "escalation_state_management_status": escalation_status,
+            "escalation_influenced_response": escalation_influenced
+        })
+    
+    with tabs[10]:
         audio_path = response.get("audio_path", "")
         if audio_path and audio_path.strip():
             try:
@@ -390,15 +579,29 @@ def display_response_results(response: Dict[str, Any]):
 # MAIN UI LAYOUT
 # ============================================================================
 
-# Header
+if not st.session_state.logged_in:
+    login_page()
+    st.stop()
+
+# Logout button in top right
+col_logout = st.columns([1, 1, 1, 1, 1])[4]
+with col_logout:
+    if st.button("Logout"):
+        st.session_state.logged_in = False
+        st.session_state.user_id = None
+        st.session_state.username = None
+        st.session_state.user_name = None
+        st.session_state.session_id = None
+        st.session_state.history = []
+        st.rerun()
+
 st.title("🤖 Voice RAG Bot")
 st.markdown("AI Customer Support with Voice Recognition and Retrieval-Augmented Generation")
+st.markdown(f"**Logged in as**: {st.session_state.user_name} ({st.session_state.username})")
 
-# Sidebar
 with st.sidebar:
     st.header("⚙️ Configuration")
     
-    # Backend status with refresh
     col1, col2 = st.columns([3, 1])
     with col1:
         st.write("**Backend Status**")
@@ -418,18 +621,12 @@ with st.sidebar:
         st.info("**Or use startup script:**")
         st.code(".\\START_SYSTEM.ps1", language="bash")
     
-    # Customer ID input
-    st.subheader("Customer Information")
-    customer_id = st.text_input(
-        "Customer ID",
-        value=st.session_state.customer_id,
-        help="Unique identifier for customer (used for history)"
-    )
-    st.session_state.customer_id = customer_id
+    st.subheader("Session Information")
+    st.caption(f"User ID: {st.session_state.user_id}")
+    st.caption(f"Session ID: {st.session_state.session_id}")
     
     st.divider()
     
-    # Model information
     st.subheader("System Components")
     st.write("**LLM**: Groq (gpt-oss-20b)")
     st.write("**STT**: Faster Whisper (base)")
@@ -438,7 +635,6 @@ with st.sidebar:
     st.write("**Sentiment**: DistilBERT")
     st.write("**NER**: BERT-base-NER")
 
-# Main content
 st.divider()
 
 # Voice Bot Mode Toggle
@@ -457,7 +653,7 @@ if voice_bot_enabled:
         with col2:
             if st.button("🎙️ Start Conversation", use_container_width=True, key="start_voice_bot"):
                 with st.spinner("Starting voice bot..."):
-                    result = voice_bot_start(st.session_state.customer_id)
+                    result = voice_bot_start(st.session_state.customer_id, st.session_state.user_id, st.session_state.session_id)
                     if result:
                         st.session_state.voice_bot_session = result.get("session_id")
                         st.session_state.voice_bot_active = True
@@ -635,7 +831,7 @@ else:
             if audio_data:
                 st.success("Audio recorded successfully!")
                 if st.button("🔄 Process Audio", key="process_audio_btn"):
-                    response = process_audio_file(audio_data.getvalue(), st.session_state.customer_id)
+                    response = process_audio_file(audio_data.getvalue(), st.session_state.customer_id, st.session_state.user_id, st.session_state.session_id)
                     if response:
                         st.session_state.last_response = response
                         st.success("✅ Processing complete!")
@@ -652,7 +848,7 @@ else:
             if uploaded_file:
                 st.success(f"File uploaded: {uploaded_file.name}")
                 if st.button("🔄 Process Uploaded Audio", key="process_uploaded_btn"):
-                    response = process_audio_file(uploaded_file.getvalue(), st.session_state.customer_id)
+                    response = process_audio_file(uploaded_file.getvalue(), st.session_state.customer_id, st.session_state.user_id, st.session_state.session_id)
                     if response:
                         st.session_state.last_response = response
                         st.success("✅ Processing complete!")
@@ -674,7 +870,7 @@ else:
             
             with col1:
                 if st.button("🚀 Process Text", use_container_width=True):
-                    response = process_text_input(user_input, st.session_state.customer_id)
+                    response = process_text_input(user_input, st.session_state.customer_id, st.session_state.user_id, st.session_state.session_id)
                     if response:
                         st.session_state.last_response = response
                         st.success("✅ Processing complete!")

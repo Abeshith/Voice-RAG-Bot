@@ -19,31 +19,46 @@ _cross_thread_lock = threading.RLock()
 
 def memory_retrieval_node(state: ConversationState) -> Dict[str, Any]:
     """
-    Phase 4+9+10: Unified Memory Retrieval integrating three memory layers
+    Phase 4+9+10+12+14: Unified Memory Retrieval with Session-Based Routing
     
     Purpose:
     1. Qdrant Memory: Persistent multi-session customer history from vector DB
     2. Thread Memory: Current thread's conversation context (Phase 9)
     3. Cross-Thread Memory: Shared memory across concurrent threads (Phase 10)
+    4. User Isolation: Filter all memories by user_id (Phase 12)
+    5. Session Routing: Route memory access by session_id (Phase 14)
     
     Retrieves from all three sources and enriches state with complete context.
+    All memory access is isolated by user_id and session_id for security.
+    Each session has its own separate memory space.
     
     Input State Fields:
     - customer_id: str - Customer identifier for history lookup
+    - user_id: str - Authenticated user identifier (Phase 12)
+    - session_id: str - Current session identifier (Phase 14)
     - conversation_id: str - Unique conversation identifier
     
     Output:
-    - memory_context: str - Formatted Qdrant history
-    - history_sessions: int - Number of previous sessions
-    - thread_memory: dict - Current thread's memory context
-    - cross_thread_memory: dict - Shared cross-thread context
+    - memory_context: str - Formatted Qdrant history (user-filtered)
+    - history_sessions: int - Number of previous sessions for this user
+    - thread_memory: dict - Current session's thread memory context
+    - cross_thread_memory: dict - Current session's cross-thread context
     - thread_id: int - Current thread ID
     - all_memory_available: bool - Whether all memory sources accessible
     """
     
     customer_id = state.get("customer_id", "")
+    user_id = state.get("user_id", None)  # Phase 12: Authenticated user
+    session_id = state.get("session_id", None)  # Phase 14: Session routing
     conversation_id = state.get("conversation_id", customer_id)
     current_thread = threading.get_ident()
+    
+    # Phase 14: Build isolation keys with session_id for memory routing
+    session_prefix = f"{user_id}:{session_id}:" if user_id and session_id else f"{user_id}:" if user_id else ""
+    thread_key = f"{session_prefix}context_{conversation_id}"
+    cross_thread_key = f"{session_prefix}conv_{conversation_id}"
+    
+    logger.info(f"Memory retrieval - User: {user_id}, Session: {session_id}, Customer: {customer_id}, Keys: thread={thread_key}, cross={cross_thread_key}")
     
     qdrant_memory = {}
     thread_memory = {}
@@ -63,6 +78,8 @@ def memory_retrieval_node(state: ConversationState) -> Dict[str, Any]:
     
     try:
         qdrant = QdrantManager()
+        # Phase 12: Qdrant already filters by customer_id, user_id is metadata
+        # In future phases, can add user_id field to Qdrant metadata for additional filtering
         search_results = qdrant.search_history(
             query="customer interaction history",
             customer_id=customer_id,
@@ -86,7 +103,7 @@ def memory_retrieval_node(state: ConversationState) -> Dict[str, Any]:
                 sessions[session_id]["types"].add(interaction_type)
             
             memory_parts = []
-            memory_parts.append(f"Customer History Summary (ID: {customer_id})")
+            memory_parts.append(f"Customer History Summary (ID: {customer_id}, User: {user_id or 'guest'})")
             memory_parts.append(f"Total Interactions: {len(search_results)}")
             memory_parts.append("")
             
@@ -104,38 +121,41 @@ def memory_retrieval_node(state: ConversationState) -> Dict[str, Any]:
                 "history_sessions": len(sessions),
             }
     except Exception as e:
-        logger.error(f"Qdrant memory retrieval error: {str(e)}")
+        logger.error(f"Qdrant memory retrieval error (User: {user_id}): {str(e)}")
         qdrant_memory = {
             "memory_context": "",
             "history_sessions": 0,
         }
     
     try:
-        thread_ctx = getattr(_thread_local_memory, f'context_{conversation_id}', None)
+        # Phase 12: Use user-isolated thread key
+        thread_ctx = getattr(_thread_local_memory, thread_key, None)
         
         if thread_ctx:
             thread_memory = thread_ctx.get('data', {})
             thread_memory_status = "retrieved"
+            logger.debug(f"Thread memory retrieved for user {user_id}")
         else:
             thread_memory_status = "no_context"
     except Exception as e:
-        logger.error(f"Thread memory retrieval error: {str(e)}")
+        logger.error(f"Thread memory retrieval error (User: {user_id}): {str(e)}")
         thread_memory_status = f"error: {str(e)}"
     
     try:
+        # Phase 12: Use user-isolated cross-thread key
         with _cross_thread_lock:
-            mem_key = f"conv_{conversation_id}"
-            cross_mem = _cross_thread_memory.get(mem_key, {})
+            cross_mem = _cross_thread_memory.get(cross_thread_key, {})
             
             if cross_mem:
                 cross_thread_memory = cross_mem.get('data', {})
                 cross_thread_status = "retrieved"
+                logger.debug(f"Cross-thread memory retrieved for user {user_id}")
             else:
                 cross_thread_status = "no_shared_memory"
             
             linked_threads = []
     except Exception as e:
-        logger.error(f"Cross-thread memory retrieval error: {str(e)}")
+        logger.error(f"Cross-thread memory retrieval error (User: {user_id}): {str(e)}")
         cross_thread_status = f"error: {str(e)}"
         linked_threads = []
     

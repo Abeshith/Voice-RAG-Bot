@@ -44,6 +44,24 @@ class ProcessAudioResponse(BaseModel):
     entities: Optional[dict]
     kb_context: str
     history_context: str
+    session_count: Optional[int] = None
+    active_sessions: Optional[list] = None
+    session_tracking_status: Optional[str] = None
+    session_memory_status: Optional[str] = None
+    memory_routed_by_session: Optional[bool] = None
+    session_isolation_verified: Optional[bool] = None
+    user_escalation_state: Optional[str] = None
+    escalation_state_updated: Optional[bool] = None
+    escalation_history_count: Optional[int] = None
+    escalation_state_management_status: Optional[str] = None
+    escalation_influenced_response: Optional[bool] = None
+    sentiment_trend: Optional[str] = None
+    consecutive_negative_count: Optional[int] = None
+    trend_escalation_recommended: Optional[bool] = None
+    trend_escalation_reason: Optional[str] = None
+    sentiment_trend_score: Optional[float] = None
+    trend_analysis_status: Optional[str] = None
+    escalation_confidence: Optional[int] = None
 
 
 class HealthResponse(BaseModel):
@@ -98,9 +116,9 @@ def extract_audio_content(audio_bytes: bytes) -> str:
         raise HTTPException(status_code=400, detail=f"STT failed: {str(e)}")
 
 
-async def run_workflow_async(user_input: str, customer_id: str) -> dict:
+async def run_workflow_async(user_input: str, customer_id: str, user_id: str = None, session_id: str = None) -> dict:
     try:
-        return await run_workflow(user_input, customer_id)
+        return await run_workflow(user_input, customer_id, user_id, session_id)
     except Exception as e:
         logger.error(f"Workflow Error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Workflow failed: {str(e)}")
@@ -119,7 +137,9 @@ async def health_check():
 @app.post("/process-audio", response_model=ProcessAudioResponse)
 async def process_audio(
     file: UploadFile = File(...),
-    customer_id: str = "DEFAULT_CUSTOMER"
+    customer_id: str = "DEFAULT_CUSTOMER",
+    user_id: str = None,
+    session_id: str = None
 ):
     try:
         reset_tracker()
@@ -128,7 +148,7 @@ async def process_audio(
         
         audio_bytes = await file.read()
         user_input = extract_audio_content(audio_bytes)
-        final_state = await run_workflow_async(user_input, customer_id)
+        final_state = await run_workflow_async(user_input, customer_id, user_id, session_id)
         
         response = ProcessAudioResponse(
             response_text=final_state.get("response", ""),
@@ -137,7 +157,25 @@ async def process_audio(
             sentiment=final_state.get("sentiment", ""),
             entities=final_state.get("entities"),
             kb_context=final_state.get("kb_context", ""),
-            history_context=final_state.get("history_context", "")
+            history_context=final_state.get("history_context", ""),
+            session_count=final_state.get("session_count"),
+            active_sessions=final_state.get("active_sessions"),
+            session_tracking_status=final_state.get("session_tracking_status"),
+            session_memory_status=final_state.get("session_memory_status"),
+            memory_routed_by_session=final_state.get("memory_routed_by_session"),
+            session_isolation_verified=final_state.get("session_isolation_verified"),
+            user_escalation_state=final_state.get("user_escalation_state"),
+            escalation_state_updated=final_state.get("escalation_state_updated"),
+            escalation_history_count=final_state.get("escalation_history_count"),
+            escalation_state_management_status=final_state.get("escalation_state_management_status"),
+            escalation_influenced_response=final_state.get("escalation_influenced_response"),
+            sentiment_trend=final_state.get("sentiment_trend"),
+            consecutive_negative_count=final_state.get("consecutive_negative_count"),
+            trend_escalation_recommended=final_state.get("trend_escalation_recommended"),
+            trend_escalation_reason=final_state.get("trend_escalation_reason"),
+            sentiment_trend_score=final_state.get("sentiment_trend_score"),
+            trend_analysis_status=final_state.get("trend_analysis_status"),
+            escalation_confidence=final_state.get("escalation_confidence")
         )
         
         return response
@@ -152,10 +190,12 @@ async def process_audio(
 @app.post("/process-text")
 async def process_text(
     user_input: str,
-    customer_id: str = "DEFAULT_CUSTOMER"
+    customer_id: str = "DEFAULT_CUSTOMER",
+    user_id: str = None,
+    session_id: str = None
 ):
     try:
-        final_state = await run_workflow_async(user_input, customer_id)
+        final_state = await run_workflow_async(user_input, customer_id, user_id, session_id)
         
         return ProcessAudioResponse(
             response_text=final_state.get("response", ""),
@@ -164,7 +204,25 @@ async def process_text(
             sentiment=final_state.get("sentiment", ""),
             entities=final_state.get("entities"),
             kb_context=final_state.get("kb_context", ""),
-            history_context=final_state.get("history_context", "")
+            history_context=final_state.get("history_context", ""),
+            session_count=final_state.get("session_count"),
+            active_sessions=final_state.get("active_sessions"),
+            session_tracking_status=final_state.get("session_tracking_status"),
+            session_memory_status=final_state.get("session_memory_status"),
+            memory_routed_by_session=final_state.get("memory_routed_by_session"),
+            session_isolation_verified=final_state.get("session_isolation_verified"),
+            user_escalation_state=final_state.get("user_escalation_state"),
+            escalation_state_updated=final_state.get("escalation_state_updated"),
+            escalation_history_count=final_state.get("escalation_history_count"),
+            escalation_state_management_status=final_state.get("escalation_state_management_status"),
+            escalation_influenced_response=final_state.get("escalation_influenced_response"),
+            sentiment_trend=final_state.get("sentiment_trend"),
+            consecutive_negative_count=final_state.get("consecutive_negative_count"),
+            trend_escalation_recommended=final_state.get("trend_escalation_recommended"),
+            trend_escalation_reason=final_state.get("trend_escalation_reason"),
+            sentiment_trend_score=final_state.get("sentiment_trend_score"),
+            trend_analysis_status=final_state.get("trend_analysis_status"),
+            escalation_confidence=final_state.get("escalation_confidence")
         )
     except Exception as e:
         logger.error(f"Error: {str(e)}", exc_info=True)
